@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0E19636325A21FD900EF79EF /* LinkyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19636225A21FD900EF79EF /* LinkyApp.swift */; };
-		0E19636525A21FD900EF79EF /* LinkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19636425A21FD900EF79EF /* LinkListView.swift */; };
 		0E19636725A21FDA00EF79EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E19636625A21FDA00EF79EF /* Assets.xcassets */; };
 		0E19636A25A21FDA00EF79EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E19636925A21FDA00EF79EF /* Preview Assets.xcassets */; };
 		0E19637525A21FDA00EF79EF /* LinkyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19637425A21FDA00EF79EF /* LinkyTests.swift */; };
 		0E19638025A21FDA00EF79EF /* LinkyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19637F25A21FDA00EF79EF /* LinkyUITests.swift */; };
-		0E19639525A220E000EF79EF /* AddPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19639425A220E000EF79EF /* AddPopUp.swift */; };
 		0E19639A25A2211F00EF79EF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19639925A2211F00EF79EF /* Model.swift */; };
 		0E1963A225A2214300EF79EF /* LinkTileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1963A125A2214300EF79EF /* LinkTileModel.swift */; };
+		0E1963AD25A22E9900EF79EF /* LinkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1963AC25A22E9900EF79EF /* LinkListView.swift */; };
+		0E1963B525A22F1100EF79EF /* AddPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1963B425A22F1100EF79EF /* AddPopUp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,6 @@
 /* Begin PBXFileReference section */
 		0E19635F25A21FD900EF79EF /* Linky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Linky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E19636225A21FD900EF79EF /* LinkyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkyApp.swift; sourceTree = "<group>"; };
-		0E19636425A21FD900EF79EF /* LinkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkListView.swift; sourceTree = "<group>"; };
 		0E19636625A21FDA00EF79EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E19636925A21FDA00EF79EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0E19636B25A21FDA00EF79EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,9 +47,10 @@
 		0E19637B25A21FDA00EF79EF /* LinkyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E19637F25A21FDA00EF79EF /* LinkyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkyUITests.swift; sourceTree = "<group>"; };
 		0E19638125A21FDA00EF79EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0E19639425A220E000EF79EF /* AddPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPopUp.swift; sourceTree = "<group>"; };
 		0E19639925A2211F00EF79EF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0E1963A125A2214300EF79EF /* LinkTileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTileModel.swift; sourceTree = "<group>"; };
+		0E1963AC25A22E9900EF79EF /* LinkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkListView.swift; sourceTree = "<group>"; };
+		0E1963B425A22F1100EF79EF /* AddPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPopUp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +104,8 @@
 				0E19639925A2211F00EF79EF /* Model.swift */,
 				0E1963A125A2214300EF79EF /* LinkTileModel.swift */,
 				0E19636225A21FD900EF79EF /* LinkyApp.swift */,
-				0E19636425A21FD900EF79EF /* LinkListView.swift */,
-				0E19639425A220E000EF79EF /* AddPopUp.swift */,
+				0E1963AC25A22E9900EF79EF /* LinkListView.swift */,
+				0E1963B425A22F1100EF79EF /* AddPopUp.swift */,
 				0E19636625A21FDA00EF79EF /* Assets.xcassets */,
 				0E19636B25A21FDA00EF79EF /* Info.plist */,
 				0E19636825A21FDA00EF79EF /* Preview Content */,
@@ -269,9 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E1963A225A2214300EF79EF /* LinkTileModel.swift in Sources */,
-				0E19636525A21FD900EF79EF /* LinkListView.swift in Sources */,
 				0E19636325A21FD900EF79EF /* LinkyApp.swift in Sources */,
-				0E19639525A220E000EF79EF /* AddPopUp.swift in Sources */,
+				0E1963B525A22F1100EF79EF /* AddPopUp.swift in Sources */,
+				0E1963AD25A22E9900EF79EF /* LinkListView.swift in Sources */,
 				0E19639A25A2211F00EF79EF /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
