@@ -7,10 +7,15 @@
 
 import SwiftUI
 
-struct PopUp: View {
+struct AddPopUpView: View {
     @EnvironmentObject var model: Model
     @State var link: String = ""
     @State var name: String = ""
+    
+    private let widthPopUp = UIScreen.screenWidth - 2 * UIScreen.screenWidth*0.15
+    private var heightPopUp: CGFloat {
+        return widthPopUp * 1.5
+    }
     
     var body: some View {
         ZStack {
@@ -74,7 +79,7 @@ struct PopUp: View {
                     }
                 }.padding()
             }
-            .frame(width: UIScreen.screenWidth/9*8, height: UIScreen.screenHeight/3*2)
+        .frame(width: widthPopUp, height: heightPopUp)
             .cornerRadius(20).shadow(radius: 20)
     }
 }
@@ -82,6 +87,6 @@ struct PopUp: View {
 
 struct PopUp_Previews: PreviewProvider {
     static var previews: some View {
-        PopUp()
+        AddPopUpView()
     }
 }

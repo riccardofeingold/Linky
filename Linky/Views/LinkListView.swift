@@ -55,7 +55,7 @@ struct LinkListView: View {
             .position(x: UIScreen.screenWidth/10*8, y: UIScreen.screenHeight/10*9)
 
             if (model.showPopUp) {
-                PopUp()
+                AddPopUpView()
                     .transition(.move(edge: .bottom))
                     .animation(.easeOut)
             }
@@ -101,6 +101,6 @@ struct LinkTileRow: View {
 struct LinkListView_Previews: PreviewProvider {
     static var previews: some View {
         LinkListView().environmentObject(Model())
-        PopUp().previewLayout(.sizeThatFits)
+        AddPopUpView().previewLayout(.sizeThatFits)
     }
 }

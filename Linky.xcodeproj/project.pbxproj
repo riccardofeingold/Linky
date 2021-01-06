@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E19636325A21FD900EF79EF /* LinkyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19636225A21FD900EF79EF /* LinkyApp.swift */; };
 		0E19636725A21FDA00EF79EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E19636625A21FDA00EF79EF /* Assets.xcassets */; };
 		0E19636A25A21FDA00EF79EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E19636925A21FDA00EF79EF /* Preview Assets.xcassets */; };
 		0E19637525A21FDA00EF79EF /* LinkyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19637425A21FDA00EF79EF /* LinkyTests.swift */; };
 		0E19638025A21FDA00EF79EF /* LinkyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19637F25A21FDA00EF79EF /* LinkyUITests.swift */; };
-		0E19639A25A2211F00EF79EF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19639925A2211F00EF79EF /* Model.swift */; };
-		0E1963A225A2214300EF79EF /* LinkTileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1963A125A2214300EF79EF /* LinkTileModel.swift */; };
-		0E1963AD25A22E9900EF79EF /* LinkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1963AC25A22E9900EF79EF /* LinkListView.swift */; };
-		0E1963B525A22F1100EF79EF /* AddPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1963B425A22F1100EF79EF /* AddPopUp.swift */; };
+		0E75952825A6401200B5C649 /* LinkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75952625A6401200B5C649 /* LinkListView.swift */; };
+		0E75952925A6401200B5C649 /* AddPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75952725A6401200B5C649 /* AddPopUpView.swift */; };
+		0E75953225A6402800B5C649 /* LinkyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75953125A6402800B5C649 /* LinkyApp.swift */; };
+		0E75953925A6403800B5C649 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75953725A6403800B5C649 /* Model.swift */; };
+		0E75953A25A6403800B5C649 /* LinkTileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75953825A6403800B5C649 /* LinkTileModel.swift */; };
+		0E75954225A6408300B5C649 /* ActionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75954125A6408300B5C649 /* ActionSheetView.swift */; };
+		0E75954725A6409800B5C649 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75954625A6409800B5C649 /* CalendarView.swift */; };
+		0E75954C25A640BC00B5C649 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75954B25A640BC00B5C649 /* InformationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +40,6 @@
 
 /* Begin PBXFileReference section */
 		0E19635F25A21FD900EF79EF /* Linky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Linky.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E19636225A21FD900EF79EF /* LinkyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkyApp.swift; sourceTree = "<group>"; };
 		0E19636625A21FDA00EF79EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E19636925A21FDA00EF79EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0E19636B25A21FDA00EF79EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,10 +49,14 @@
 		0E19637B25A21FDA00EF79EF /* LinkyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E19637F25A21FDA00EF79EF /* LinkyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkyUITests.swift; sourceTree = "<group>"; };
 		0E19638125A21FDA00EF79EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0E19639925A2211F00EF79EF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		0E1963A125A2214300EF79EF /* LinkTileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTileModel.swift; sourceTree = "<group>"; };
-		0E1963AC25A22E9900EF79EF /* LinkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkListView.swift; sourceTree = "<group>"; };
-		0E1963B425A22F1100EF79EF /* AddPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPopUp.swift; sourceTree = "<group>"; };
+		0E75952625A6401200B5C649 /* LinkListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkListView.swift; sourceTree = "<group>"; };
+		0E75952725A6401200B5C649 /* AddPopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPopUpView.swift; sourceTree = "<group>"; };
+		0E75953125A6402800B5C649 /* LinkyApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkyApp.swift; sourceTree = "<group>"; };
+		0E75953725A6403800B5C649 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		0E75953825A6403800B5C649 /* LinkTileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkTileModel.swift; sourceTree = "<group>"; };
+		0E75954125A6408300B5C649 /* ActionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetView.swift; sourceTree = "<group>"; };
+		0E75954625A6409800B5C649 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		0E75954B25A640BC00B5C649 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +107,9 @@
 		0E19636125A21FD900EF79EF /* Linky */ = {
 			isa = PBXGroup;
 			children = (
-				0E19639925A2211F00EF79EF /* Model.swift */,
-				0E1963A125A2214300EF79EF /* LinkTileModel.swift */,
-				0E19636225A21FD900EF79EF /* LinkyApp.swift */,
-				0E1963AC25A22E9900EF79EF /* LinkListView.swift */,
-				0E1963B425A22F1100EF79EF /* AddPopUp.swift */,
+				0E75953625A6403800B5C649 /* Models */,
+				0E75952525A6401200B5C649 /* Views */,
+				0E75953025A6402800B5C649 /* Controllers */,
 				0E19636625A21FDA00EF79EF /* Assets.xcassets */,
 				0E19636B25A21FDA00EF79EF /* Info.plist */,
 				0E19636825A21FDA00EF79EF /* Preview Content */,
@@ -137,6 +141,35 @@
 				0E19638125A21FDA00EF79EF /* Info.plist */,
 			);
 			path = LinkyUITests;
+			sourceTree = "<group>";
+		};
+		0E75952525A6401200B5C649 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0E75952625A6401200B5C649 /* LinkListView.swift */,
+				0E75952725A6401200B5C649 /* AddPopUpView.swift */,
+				0E75954125A6408300B5C649 /* ActionSheetView.swift */,
+				0E75954625A6409800B5C649 /* CalendarView.swift */,
+				0E75954B25A640BC00B5C649 /* InformationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0E75953025A6402800B5C649 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0E75953125A6402800B5C649 /* LinkyApp.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0E75953625A6403800B5C649 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0E75953725A6403800B5C649 /* Model.swift */,
+				0E75953825A6403800B5C649 /* LinkTileModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,11 +301,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E1963A225A2214300EF79EF /* LinkTileModel.swift in Sources */,
-				0E19636325A21FD900EF79EF /* LinkyApp.swift in Sources */,
-				0E1963B525A22F1100EF79EF /* AddPopUp.swift in Sources */,
-				0E1963AD25A22E9900EF79EF /* LinkListView.swift in Sources */,
-				0E19639A25A2211F00EF79EF /* Model.swift in Sources */,
+				0E75953A25A6403800B5C649 /* LinkTileModel.swift in Sources */,
+				0E75954C25A640BC00B5C649 /* InformationView.swift in Sources */,
+				0E75954225A6408300B5C649 /* ActionSheetView.swift in Sources */,
+				0E75952925A6401200B5C649 /* AddPopUpView.swift in Sources */,
+				0E75953225A6402800B5C649 /* LinkyApp.swift in Sources */,
+				0E75952825A6401200B5C649 /* LinkListView.swift in Sources */,
+				0E75953925A6403800B5C649 /* Model.swift in Sources */,
+				0E75954725A6409800B5C649 /* CalendarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
