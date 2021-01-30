@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		0E19636725A21FDA00EF79EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E19636625A21FDA00EF79EF /* Assets.xcassets */; };
 		0E19636A25A21FDA00EF79EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E19636925A21FDA00EF79EF /* Preview Assets.xcassets */; };
-		0E19637525A21FDA00EF79EF /* LinkyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19637425A21FDA00EF79EF /* LinkyTests.swift */; };
-		0E19638025A21FDA00EF79EF /* LinkyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19637F25A21FDA00EF79EF /* LinkyUITests.swift */; };
 		0E75952825A6401200B5C649 /* LinkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75952625A6401200B5C649 /* LinkListView.swift */; };
 		0E75952925A6401200B5C649 /* AddPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75952725A6401200B5C649 /* AddPopUpView.swift */; };
 		0E75953225A6402800B5C649 /* LinkyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75953125A6402800B5C649 /* LinkyApp.swift */; };
@@ -21,34 +19,11 @@
 		0E75954C25A640BC00B5C649 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75954B25A640BC00B5C649 /* InformationView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		0E19637125A21FDA00EF79EF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0E19635725A21FD900EF79EF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0E19635E25A21FD900EF79EF;
-			remoteInfo = Linky;
-		};
-		0E19637C25A21FDA00EF79EF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0E19635725A21FD900EF79EF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0E19635E25A21FD900EF79EF;
-			remoteInfo = Linky;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		0E19635F25A21FD900EF79EF /* Linky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Linky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E19636625A21FDA00EF79EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E19636925A21FDA00EF79EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0E19636B25A21FDA00EF79EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0E19637025A21FDA00EF79EF /* LinkyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E19637425A21FDA00EF79EF /* LinkyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkyTests.swift; sourceTree = "<group>"; };
-		0E19637625A21FDA00EF79EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0E19637B25A21FDA00EF79EF /* LinkyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E19637F25A21FDA00EF79EF /* LinkyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkyUITests.swift; sourceTree = "<group>"; };
-		0E19638125A21FDA00EF79EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E75952625A6401200B5C649 /* LinkListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkListView.swift; sourceTree = "<group>"; };
 		0E75952725A6401200B5C649 /* AddPopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPopUpView.swift; sourceTree = "<group>"; };
 		0E75953125A6402800B5C649 /* LinkyApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkyApp.swift; sourceTree = "<group>"; };
@@ -67,20 +42,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0E19636D25A21FDA00EF79EF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0E19637825A21FDA00EF79EF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -88,8 +49,6 @@
 			isa = PBXGroup;
 			children = (
 				0E19636125A21FD900EF79EF /* Linky */,
-				0E19637325A21FDA00EF79EF /* LinkyTests */,
-				0E19637E25A21FDA00EF79EF /* LinkyUITests */,
 				0E19636025A21FD900EF79EF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,8 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				0E19635F25A21FD900EF79EF /* Linky.app */,
-				0E19637025A21FDA00EF79EF /* LinkyTests.xctest */,
-				0E19637B25A21FDA00EF79EF /* LinkyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,24 +80,6 @@
 				0E19636925A21FDA00EF79EF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		0E19637325A21FDA00EF79EF /* LinkyTests */ = {
-			isa = PBXGroup;
-			children = (
-				0E19637425A21FDA00EF79EF /* LinkyTests.swift */,
-				0E19637625A21FDA00EF79EF /* Info.plist */,
-			);
-			path = LinkyTests;
-			sourceTree = "<group>";
-		};
-		0E19637E25A21FDA00EF79EF /* LinkyUITests */ = {
-			isa = PBXGroup;
-			children = (
-				0E19637F25A21FDA00EF79EF /* LinkyUITests.swift */,
-				0E19638125A21FDA00EF79EF /* Info.plist */,
-			);
-			path = LinkyUITests;
 			sourceTree = "<group>";
 		};
 		0E75952525A6401200B5C649 /* Views */ = {
@@ -192,42 +131,6 @@
 			productReference = 0E19635F25A21FD900EF79EF /* Linky.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0E19636F25A21FDA00EF79EF /* LinkyTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0E19638725A21FDA00EF79EF /* Build configuration list for PBXNativeTarget "LinkyTests" */;
-			buildPhases = (
-				0E19636C25A21FDA00EF79EF /* Sources */,
-				0E19636D25A21FDA00EF79EF /* Frameworks */,
-				0E19636E25A21FDA00EF79EF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0E19637225A21FDA00EF79EF /* PBXTargetDependency */,
-			);
-			name = LinkyTests;
-			productName = LinkyTests;
-			productReference = 0E19637025A21FDA00EF79EF /* LinkyTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		0E19637A25A21FDA00EF79EF /* LinkyUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0E19638A25A21FDA00EF79EF /* Build configuration list for PBXNativeTarget "LinkyUITests" */;
-			buildPhases = (
-				0E19637725A21FDA00EF79EF /* Sources */,
-				0E19637825A21FDA00EF79EF /* Frameworks */,
-				0E19637925A21FDA00EF79EF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0E19637D25A21FDA00EF79EF /* PBXTargetDependency */,
-			);
-			name = LinkyUITests;
-			productName = LinkyUITests;
-			productReference = 0E19637B25A21FDA00EF79EF /* LinkyUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -239,14 +142,6 @@
 				TargetAttributes = {
 					0E19635E25A21FD900EF79EF = {
 						CreatedOnToolsVersion = 12.3;
-					};
-					0E19636F25A21FDA00EF79EF = {
-						CreatedOnToolsVersion = 12.3;
-						TestTargetID = 0E19635E25A21FD900EF79EF;
-					};
-					0E19637A25A21FDA00EF79EF = {
-						CreatedOnToolsVersion = 12.3;
-						TestTargetID = 0E19635E25A21FD900EF79EF;
 					};
 				};
 			};
@@ -264,8 +159,6 @@
 			projectRoot = "";
 			targets = (
 				0E19635E25A21FD900EF79EF /* Linky */,
-				0E19636F25A21FDA00EF79EF /* LinkyTests */,
-				0E19637A25A21FDA00EF79EF /* LinkyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -277,20 +170,6 @@
 			files = (
 				0E19636A25A21FDA00EF79EF /* Preview Assets.xcassets in Resources */,
 				0E19636725A21FDA00EF79EF /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0E19636E25A21FDA00EF79EF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0E19637925A21FDA00EF79EF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,36 +191,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0E19636C25A21FDA00EF79EF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0E19637525A21FDA00EF79EF /* LinkyTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0E19637725A21FDA00EF79EF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0E19638025A21FDA00EF79EF /* LinkyUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		0E19637225A21FDA00EF79EF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0E19635E25A21FD900EF79EF /* Linky */;
-			targetProxy = 0E19637125A21FDA00EF79EF /* PBXContainerItemProxy */;
-		};
-		0E19637D25A21FDA00EF79EF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0E19635E25A21FD900EF79EF /* Linky */;
-			targetProxy = 0E19637C25A21FDA00EF79EF /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0E19638225A21FDA00EF79EF /* Debug */ = {
@@ -504,90 +354,6 @@
 			};
 			name = Release;
 		};
-		0E19638825A21FDA00EF79EF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C43N923FE6;
-				INFOPLIST_FILE = LinkyTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.riccardofeingold.LinkyTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Linky.app/Linky";
-			};
-			name = Debug;
-		};
-		0E19638925A21FDA00EF79EF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C43N923FE6;
-				INFOPLIST_FILE = LinkyTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.riccardofeingold.LinkyTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Linky.app/Linky";
-			};
-			name = Release;
-		};
-		0E19638B25A21FDA00EF79EF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C43N923FE6;
-				INFOPLIST_FILE = LinkyUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.riccardofeingold.LinkyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Linky;
-			};
-			name = Debug;
-		};
-		0E19638C25A21FDA00EF79EF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C43N923FE6;
-				INFOPLIST_FILE = LinkyUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.riccardofeingold.LinkyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Linky;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -605,24 +371,6 @@
 			buildConfigurations = (
 				0E19638525A21FDA00EF79EF /* Debug */,
 				0E19638625A21FDA00EF79EF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0E19638725A21FDA00EF79EF /* Build configuration list for PBXNativeTarget "LinkyTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0E19638825A21FDA00EF79EF /* Debug */,
-				0E19638925A21FDA00EF79EF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0E19638A25A21FDA00EF79EF /* Build configuration list for PBXNativeTarget "LinkyUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0E19638B25A21FDA00EF79EF /* Debug */,
-				0E19638C25A21FDA00EF79EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

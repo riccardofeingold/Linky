@@ -2,11 +2,10 @@
 //  LinkyTests.swift
 //  LinkyTests
 //
-//  Created by Riccardo Feingold on 03.01.21.
+//  Created by Riccardo Feingold on 10.01.21.
 //
 
 import XCTest
-@testable import Linky
 
 class LinkyTests: XCTestCase {
 
@@ -25,7 +24,7 @@ class LinkyTests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }

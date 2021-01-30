@@ -6,87 +6,155 @@
 //
 
 import SwiftUI
+import UIKit
 
+extension Color {
+    static let lightGray: Color = Color(UIColor.systemGray6)
+}
+
+
+
+//MARK: - ViewModifiers
+struct customViewModifier: ViewModifier {
+    var roundnessOfCorner: CGFloat
+    var color: Color
+    var textColor: Color
+    var textSize: CGFloat
+    
+    func body(content: Content) -> some View {
+        content
+            .padding()
+            .background(color)
+            .cornerRadius(roundnessOfCorner)
+            .padding(.leading)
+            .padding(.trailing)
+            .foregroundColor(textColor)
+            .font(.custom("Open Sans", size: textSize))
+    }
+}
+
+// MARK: - AddPopView
 struct AddPopUpView: View {
     @EnvironmentObject var model: Model
     @State var link: String = ""
     @State var name: String = ""
     
-    private let widthPopUp = UIScreen.screenWidth - 2 * UIScreen.screenWidth*0.15
-    private var heightPopUp: CGFloat {
-        return widthPopUp * 1.5
-    }
-    
     var body: some View {
         ZStack {
-                Color.white
-                VStack {
-                    Text("Add new link")
-                        .font(.title)
-                        .foregroundColor(.blue)
-                    
-                    Spacer()
-                    
-                    VStack(alignment: .leading, content: {
-                        Text("Name")
-                            .font(.title2)
-                        HStack {
-                            Image(systemName: "tag")
-                                .foregroundColor(.blue)
-                                .rotationEffect(.degrees(10), anchor: .center)
-                            TextField("example", text: $name)
-                        }
-                        .modifier(customViewModifier(roundnessOfCorner: 6, startColor: Color.orange, endColor: Color.pink, textColor: Color.black, textSize: 18))
-                        
-                        Text("Link")
-                            .font(.title2)
-                        HStack {
-                            Image(systemName: "link")
-                                .foregroundColor(.blue)
-                            TextField("www.example.com", text: $link)
-                        }
-                        .modifier(customViewModifier(roundnessOfCorner: 6, startColor: Color.orange, endColor: Color.pink, textColor: Color.black, textSize: 18))
-                    })
+            Color.white
+            VStack (alignment: .leading, spacing: nil) {
+                Text("Add new link")
+                    .font(Font.custom("Helvetica Neue", fixedSize: 25).weight(.medium))
+                    .foregroundColor(.blue)
                     .padding()
+            
+                Text("Name")
+                    .font(Font.custom("Helvetica Neue", fixedSize: 20).weight(.regular))
+                    .foregroundColor(.blue)
+                    .padding(.leading)
+                
+                HStack {
+                    Image(systemName: "tag")
+                        .foregroundColor(.blue)
+                        .rotationEffect(.degrees(10), anchor: .center)
+                    TextField("example", text: $name)
+                }
+                .modifier(customViewModifier(roundnessOfCorner: 6, color: Color.lightGray, textColor: Color.black, textSize: 16))
+                
+                Text("Link")
+                    .font(Font.custom("Helvetica Neue", fixedSize: 20).weight(.regular))
+                    .foregroundColor(.blue)
+                    .padding(.leading)
+            
+                HStack {
+                    Image(systemName: "link")
+                        .foregroundColor(.blue)
+                    TextField("www.example.com", text: $link)
+                }
+                .modifier(customViewModifier(roundnessOfCorner: 6, color: Color.lightGray, textColor: Color.black, textSize: 16))
+                
+                Button(action: {
+                    model.showCalendar = true
+                }, label: {
+                    Image(systemName: "calendar")
+                        .resizable()
+                        .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize, alignment: .center)
+                        .scaledToFit()
+                        .foregroundColor(Color.yellow)
+                })
+                .padding(.leading)
+                
+                HStack {
+                    FilledButtonWithRounderCorners(text: "Add", color: .blue) {
+                        let linkTile = LinkTile(name: name, link: link)
+                        model.links.append(linkTile)
+                        
+                        let encoder = PropertyListEncoder()
+                        do {
+                            let data = try encoder.encode(model.links)
+                            try data.write(to: model.dataFilePath!)
+                        } catch {
+                            print(error)
+                        }
+                        
+                        model.showPopUp = false
+                    }
+                    .padding(.leading)
                     
                     Spacer()
                     
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            let linkTile = LinkTile(name: name, link: link)
-                            model.links.append(linkTile)
-                            
-                            let encoder = PropertyListEncoder()
-                            do {
-                                let data = try encoder.encode(model.links)
-                                try data.write(to: model.dataFilePath!)
-                            } catch {
-                                print(error)
-                            }
-                            
-                            model.showPopUp = false
-                        }, label: {
-                            Text("Add")
-                        })
-                        Spacer()
-                        Button(action: {
-                            model.showPopUp = false
-                        }, label: {
-                            Text("Cancel")
-                        })
-                        Spacer()
+                    FilledButtonWithRounderCorners(text: "Cancel", color: .red) {
+                        model.showPopUp = false
                     }
-                }.padding()
-            }
-        .frame(width: widthPopUp, height: heightPopUp)
-            .cornerRadius(20).shadow(radius: 20)
+                    
+                    Spacer()
+                }
+            }.padding()
+        }
+        .frame(width: UIScreen.addPopUpViewWidth, height: UIScreen.addPopUpViewHeight)
+        .cornerRadius(20).shadow(radius: 20)
     }
 }
 
+struct FilledButtonWithRounderCorners: View {
+    var text: String
+    var color: Color
+    var action: () -> Void
+    
+    var body: some View {
+        Button(action: action, label: {
+            Text(text)
+                .foregroundColor(.white)
+                .font(.body)
+                .bold()
+        })
+        .frame(width: UIScreen.addPopUpButtonWidth, height: UIScreen.addPopUpButtonHeight)
+        .background(color)
+        .cornerRadius(10)
+    }
+}
+
+//extension View {
+//    func titleFont(bigOrSmall size: Bool,color c: Color, weight w: Font.Weight) -> some View {
+//        self.modifier(TitleFont(size: size, color: c, weight: w))
+//    }
+//}
+//
+//struct TitleFont: ViewModifier {
+//    var size: Bool
+//    var color: Color
+//    var weight: Font.Weight
+//
+//    func body(content: Content) -> some View {
+//        content
+//            .font(Font.custom("Helvetica Neue", size: self.size ? 25 : 20).weight(weight))
+//            .foregroundColor(color)
+//            .padding()
+//    }
+//}
 
 struct PopUp_Previews: PreviewProvider {
     static var previews: some View {
-        AddPopUpView()
+        AddPopUpView().environmentObject(Model())
     }
 }
