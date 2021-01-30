@@ -27,5 +27,6 @@ struct CalendarView: View {
 struct CalendarView_Preview: PreviewProvider {
     static var previews: some View {
         CalendarView().previewLayout(.sizeThatFits)
+            .environmentObject(Model())
     }
 }

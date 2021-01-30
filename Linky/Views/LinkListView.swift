@@ -34,6 +34,19 @@ extension UIScreen {
     static var addPopUpButtonHeight: CGFloat {
         return addPopUpViewHeight / 8
     }
+    
+    //information Screen
+    static var informationViewWidth: CGFloat {
+        return screenWidth * 0.9
+    }
+    
+    static var informationViewHeight: CGFloat {
+        return screenHeight * 0.6
+    }
+    
+    static var informationViewImageSize: CGFloat {
+        return informationViewWidth * 0.3
+    }
 }
 
 //MARK: - LinkListView
@@ -78,8 +91,9 @@ struct LinkListView: View {
                 }
             }
             
-            //TODO add here the calendar view not in popupview.swift
-            //overlay with opacity
+            if model.showInformation {
+                InformationView(linkName: model.tappedLinktile!.name, link: model.tappedLinktile!.link, linkText: "asölkafösdlkjasöldj")
+            }
         }
         .onAppear{
             load_links()
@@ -104,26 +118,35 @@ struct LinkListView: View {
 
 struct LinkTileRow: View {
     var linkTile: LinkTile
+    @EnvironmentObject var model: Model
     
     var body: some View {
-        HStack {
-            VStack (alignment: .leading, spacing: nil) {
-                Text(linkTile.name)
-                    .font(.title)
-                    .bold()
-                    .foregroundColor(.blue)
-                Text(linkTile.link)
-                    .font(.body)
-                    .fontWeight(.medium)
-                    .lineLimit(2)
+        ZStack {
+            Color.white
+            HStack {
+                VStack (alignment: .leading, spacing: nil) {
+                    Text(linkTile.name)
+                        .font(.title)
+                        .bold()
+                        .foregroundColor(.blue)
+                    Text(linkTile.link)
+                        .font(.body)
+                        .fontWeight(.medium)
+                        .lineLimit(2)
+                }
+                
+                Spacer()
+                
+                Image(systemName: "camera")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 100, alignment: .center)
             }
-            
-            Spacer()
-            
-            Image(systemName: "camera")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 100, height: 100, alignment: .center)
+        }
+        .onTapGesture {
+            model.showInformation = true
+            model.tappedLinktile = linkTile
+            print(linkTile.name)
         }
     }
 }

@@ -12,6 +12,8 @@ import Combine
 class Model: ObservableObject {
     @Published var showPopUp = false
     @Published var showCalendar = false
+    @Published var showInformation = false
+    @Published var tappedLinktile: LinkTile?
     @Published var links: [LinkTile] = []
     @Published var date = Date()
     
