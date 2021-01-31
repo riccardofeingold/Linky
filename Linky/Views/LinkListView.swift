@@ -62,12 +62,20 @@ struct LinkListView: View {
                 }
                 
                 Button(action: addLinkToList, label: {
-                    Image(systemName: "plus.circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize, alignment: .center)
-                        .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 0))
-                        .foregroundColor(.blue)
+                    ZStack {
+                        Circle()
+                            .size(width: UIScreen.symbolSize, height: UIScreen.symbolSize)
+                            .foregroundColor(.white)
+                            .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize, alignment: .center)
+                            .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 0))
+                        
+                        Image(systemName: "plus.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize, alignment: .center)
+                            .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 0))
+                            .foregroundColor(.blue)
+                    }
                 })
                 .position(x: UIScreen.screenWidth/10*8, y: UIScreen.screenHeight/10*9)
             }

@@ -11,6 +11,7 @@ struct InformationView: View {
     let linkName: String
     let link: String
     let linkText: String
+    @State var startEaseOut: Bool = false
     
     @State var offset = CGSize.zero
     @EnvironmentObject var model: Model
@@ -68,7 +69,7 @@ struct InformationView: View {
                             .scaledToFit()
                             .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize)
                     })
-                    .padding()
+                    .padding(.trailing)
                     
                     Button(action: {
                         print("Sharing")
@@ -78,20 +79,23 @@ struct InformationView: View {
                             .scaledToFit()
                             .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize)
                     })
+                    .padding(.trailing)
                 }
             }
         }
         .frame(width: UIScreen.informationViewWidth, height: UIScreen.informationViewHeight)
         .cornerRadius(20)
         .shadow(radius: 20)
-        .offset(x: offset.width, y: offset.height)
+        .offset(x: 0, y: offset.height)
         .gesture(DragGesture().onChanged({ gesture in
             self.offset = gesture.translation
         })
         .onEnded({ _ in
             model.showInformation = false
+            self.startEaseOut = true
         }))
-        .animation(.linear)
+        .animation(startEaseOut ? .easeOut : .none)
+        .animation(.spring())
     }
 }
 
