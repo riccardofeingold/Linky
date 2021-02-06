@@ -69,7 +69,8 @@ struct AddPopUpView: View {
                 HStack {
                     Image(systemName: "link")
                         .foregroundColor(.blue)
-                    TextField("www.example.com", text: $link)
+                    TextField("example.com", text: $link)
+                        .keyboardType(.URL)
                 }
                 .modifier(customViewModifier(roundnessOfCorner: 6, color: Color.lightGray, textColor: Color.black, textSize: 16))
                 

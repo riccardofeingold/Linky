@@ -11,8 +11,9 @@ struct InformationView: View {
     let linkName: String
     let link: String
     let linkText: String
-    @State var startEaseOut: Bool = false
     
+    @State var showingShareSheet = false
+    @State var startEaseOut: Bool = false
     @State var offset = CGSize.zero
     @EnvironmentObject var model: Model
     
@@ -62,7 +63,9 @@ struct InformationView: View {
                     Spacer()
                     
                     Button(action: {
-                        print("Open link!")
+                        if let url = URL(string: "https://\(link)") {
+                            UIApplication.shared.open(url)
+                        }
                     }, label: {
                         Image(systemName: "globe")
                             .resizable()
@@ -72,7 +75,7 @@ struct InformationView: View {
                     .padding(.trailing)
                     
                     Button(action: {
-                        print("Sharing")
+                        self.showingShareSheet = true
                     }, label: {
                         Image(systemName: "square.and.arrow.up.fill")
                             .resizable()
@@ -80,6 +83,9 @@ struct InformationView: View {
                             .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize)
                     })
                     .padding(.trailing)
+                    .sheet(isPresented: $showingShareSheet, content: {
+                        ShareView(activityItems: [NSURL(string: "https://\(link)")!] as [Any], applicationActivities: [])
+                    })
                 }
             }
         }
@@ -96,6 +102,19 @@ struct InformationView: View {
         }))
         .animation(startEaseOut ? .easeOut : .none)
         .animation(.spring())
+    }
+}
+
+struct ShareView: UIViewControllerRepresentable {
+    let activityItems: [Any]
+    let applicationActivities: [UIActivity]?
+    
+    func makeUIViewController(context: Context) -> some UIViewController {
+        return UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        
     }
 }
 
