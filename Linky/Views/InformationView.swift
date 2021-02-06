@@ -84,7 +84,7 @@ struct InformationView: View {
                     })
                     .padding(.trailing)
                     .sheet(isPresented: $showingShareSheet, content: {
-                        ShareView(activityItems: [NSURL(string: "https://\(link)")!] as [Any], applicationActivities: [])
+                        ShareView(activityItems: [NSURL(string: "https://\(link)")!] as [Any], applicationActivities: nil)
                     })
                 }
             }
