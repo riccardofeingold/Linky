@@ -154,7 +154,6 @@ struct LinkTileRow: View {
         .onTapGesture {
             model.showInformation = true
             model.tappedLinktile = linkTile
-            print(linkTile.name)
         }
     }
 }
