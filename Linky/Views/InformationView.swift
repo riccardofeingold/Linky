@@ -63,7 +63,7 @@ struct InformationView: View {
                     Spacer()
                     
                     Button(action: {
-                        if let url = URL(string: "https://\(link)") {
+                        if let url = URL(string: link) {
                             UIApplication.shared.open(url)
                         }
                     }, label: {
@@ -84,7 +84,7 @@ struct InformationView: View {
                     })
                     .padding(.trailing)
                     .sheet(isPresented: $showingShareSheet, content: {
-                        ShareView(activityItems: [NSURL(string: "https://\(link)")!] as [Any], applicationActivities: nil)
+                        ShareView(activityItems: [NSURL(string: link)!] as [Any], applicationActivities: nil)
                     })
                 }
             }
