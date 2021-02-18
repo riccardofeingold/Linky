@@ -82,21 +82,21 @@ struct LinkListView: View {
             .opacity(model.showPopUp ? 0.3 : 1)
             .onTapGesture {
                 print(model.date)
-                model.showCalendar = false
+//                model.showCalendar = false
             }
             
             if (model.showPopUp) {
                 AddPopUpView()
                     .transition(.move(edge: .bottom))
                     .animation(.easeOut)
-                    .opacity(model.showCalendar ? 0.3 : 1)
+//                    .opacity(model.showCalendar ? 0.3 : 1)
 
-                if model.showCalendar {
-                    CalendarView()
-                        .cornerRadius(20)
-                        .transition(.move(edge: .bottom))
-                        .animation(.easeOut)
-                }
+//                if model.showCalendar {
+//                    CalendarView()
+//                        .cornerRadius(20)
+//                        .transition(.move(edge: .bottom))
+//                        .animation(.easeOut)
+//                }
             }
             
             if model.showInformation {

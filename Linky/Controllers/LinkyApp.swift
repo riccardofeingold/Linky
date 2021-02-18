@@ -13,6 +13,7 @@ struct LinkyApp: App {
         WindowGroup {
             LinkListView()
                 .environmentObject(Model())
+                .colorScheme(.light)
         }
     }
 }

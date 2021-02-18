@@ -97,11 +97,20 @@ struct InformationView: View {
             self.offset = gesture.translation
         })
         .onEnded({ _ in
-            model.showInformation = false
-            self.startEaseOut = true
+            if abs(self.offset.height) > 200 {
+                withAnimation(.easeOut){
+                    self.offset = CGSize(width: CGFloat(0), height: CGFloat(-UIScreen.screenHeight))
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    model.showInformation = false
+    
+                }
+            }else {
+                withAnimation(.spring()){
+                    self.offset = .zero
+                }
+            }
         }))
-        .animation(startEaseOut ? .easeOut : .none)
-        .animation(.spring())
     }
 }
 
