@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UIKit
+import RealmSwift
 
 extension Color {
     static let lightGray: Color = Color(UIColor.systemGray6)
@@ -38,6 +39,8 @@ struct AddPopUpView: View {
     @EnvironmentObject var model: Model
     @State var link: String = ""
     @State var name: String = ""
+    
+    let realm = try! Realm()
     
     var body: some View {
         ZStack {
@@ -87,16 +90,13 @@ struct AddPopUpView: View {
                 
                 HStack {
                     FilledButtonWithRounderCorners(text: "Add", color: .blue) {
-                        let linkTile = LinkTile(name: name, link: link)
+                        let linkTile = LinkTile()
+                        linkTile.id = UUID().hashValue
+                        linkTile.name = name
+                        linkTile.link = link
                         model.links.append(linkTile)
                         
-                        let encoder = PropertyListEncoder()
-                        do {
-                            let data = try encoder.encode(model.links)
-                            try data.write(to: model.dataFilePath!)
-                        } catch {
-                            print(error)
-                        }
+                        self.save(linkTile)
                         
                         model.showPopUp = false
                     }
@@ -114,6 +114,17 @@ struct AddPopUpView: View {
         }
         .frame(width: UIScreen.addPopUpViewWidth, height: UIScreen.addPopUpViewHeight)
         .cornerRadius(20).shadow(radius: 20)
+    }
+    
+//    Save Links
+    func save(_ link: LinkTile) {
+        do {
+            try realm.write{
+                realm.add(link)
+            }
+        } catch {
+            print("Error message: \(error)")
+        }
     }
 }
 

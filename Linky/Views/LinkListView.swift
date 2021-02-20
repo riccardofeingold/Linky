@@ -8,6 +8,7 @@
 import Combine
 import Foundation
 import SwiftUI
+import RealmSwift
 
 //MARK: - Additional Data like UIScreen sizes etc.
 extension UIScreen {
@@ -51,13 +52,15 @@ extension UIScreen {
 
 //MARK: - LinkListView
 struct LinkListView: View {
+    let realm = try! Realm()
+    
     @EnvironmentObject var model: Model
     private let dateFormatter = DateFormatter()
 
     var body: some View {
         ZStack{
             Group {
-                List(model.links){ links in
+                List(model.links ?? []){ links in
                     LinkTileRow(linkTile: links)
                 }
                 
@@ -109,14 +112,7 @@ struct LinkListView: View {
     }
     
     func load_links() {
-        if let data = try? Data(contentsOf: model.dataFilePath!) {
-            let decoder = PropertyListDecoder()
-            do {
-                model.links = try decoder.decode([LinkTile].self, from: data)
-            } catch {
-                print(error)
-            }
-        }
+        model.links = Array(realm.objects(LinkTile.self))
     }
     
     func addLinkToList() -> Void {

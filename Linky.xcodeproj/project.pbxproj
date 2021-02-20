@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E01FBA225E1A9BE00080928 /* LinkTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75953825A6403800B5C649 /* LinkTile.swift */; };
 		0E19636725A21FDA00EF79EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E19636625A21FDA00EF79EF /* Assets.xcassets */; };
 		0E19636A25A21FDA00EF79EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E19636925A21FDA00EF79EF /* Preview Assets.xcassets */; };
 		0E3C13C625D0074A002D436D /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3C13C525D0074A002D436D /* ShareViewController.swift */; };
@@ -16,10 +17,14 @@
 		0E75952925A6401200B5C649 /* AddPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75952725A6401200B5C649 /* AddPopUpView.swift */; };
 		0E75953225A6402800B5C649 /* LinkyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75953125A6402800B5C649 /* LinkyApp.swift */; };
 		0E75953925A6403800B5C649 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75953725A6403800B5C649 /* Model.swift */; };
-		0E75953A25A6403800B5C649 /* LinkTileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75953825A6403800B5C649 /* LinkTileModel.swift */; };
+		0E75953A25A6403800B5C649 /* LinkTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75953825A6403800B5C649 /* LinkTile.swift */; };
 		0E75954225A6408300B5C649 /* ActionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75954125A6408300B5C649 /* ActionSheetView.swift */; };
 		0E75954725A6409800B5C649 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75954625A6409800B5C649 /* CalendarView.swift */; };
 		0E75954C25A640BC00B5C649 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75954B25A640BC00B5C649 /* InformationView.swift */; };
+		0E85347A25E0220400157B77 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E85347925E0220400157B77 /* Category.swift */; };
+		0E85347B25E0220400157B77 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E85347925E0220400157B77 /* Category.swift */; };
+		3C2F4006E4FC60C1F7836D6C /* Pods_LinkyShareExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C7D9A929A30F4ACBD16C3E0 /* Pods_LinkyShareExtension.framework */; };
+		3C94B8143B84DC1DEAD3F751 /* Pods_Linky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F49B10FECCBB6EF686AB2E /* Pods_Linky.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,10 +64,17 @@
 		0E75952725A6401200B5C649 /* AddPopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPopUpView.swift; sourceTree = "<group>"; };
 		0E75953125A6402800B5C649 /* LinkyApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkyApp.swift; sourceTree = "<group>"; };
 		0E75953725A6403800B5C649 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		0E75953825A6403800B5C649 /* LinkTileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkTileModel.swift; sourceTree = "<group>"; };
+		0E75953825A6403800B5C649 /* LinkTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkTile.swift; sourceTree = "<group>"; };
 		0E75954125A6408300B5C649 /* ActionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetView.swift; sourceTree = "<group>"; };
 		0E75954625A6409800B5C649 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		0E75954B25A640BC00B5C649 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		0E85347925E0220400157B77 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		2A51C939DD94F18F5E54B54F /* Pods-Linky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Linky.debug.xcconfig"; path = "Target Support Files/Pods-Linky/Pods-Linky.debug.xcconfig"; sourceTree = "<group>"; };
+		2E3161C11678222874B04936 /* Pods-LinkyShareExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinkyShareExtension.debug.xcconfig"; path = "Target Support Files/Pods-LinkyShareExtension/Pods-LinkyShareExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		70F49B10FECCBB6EF686AB2E /* Pods_Linky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Linky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C7D9A929A30F4ACBD16C3E0 /* Pods_LinkyShareExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LinkyShareExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF80A10696C69343626B3251 /* Pods-LinkyShareExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinkyShareExtension.release.xcconfig"; path = "Target Support Files/Pods-LinkyShareExtension/Pods-LinkyShareExtension.release.xcconfig"; sourceTree = "<group>"; };
+		D8A550CA10C7D61EBEF31523 /* Pods-Linky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Linky.release.xcconfig"; path = "Target Support Files/Pods-Linky/Pods-Linky.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C94B8143B84DC1DEAD3F751 /* Pods_Linky.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C2F4006E4FC60C1F7836D6C /* Pods_LinkyShareExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +103,8 @@
 				0E19636125A21FD900EF79EF /* Linky */,
 				0E3C13C425D0074A002D436D /* LinkyShareExtension */,
 				0E19636025A21FD900EF79EF /* Products */,
+				3DF9C5CFB8FD5725F34F9069 /* Frameworks */,
+				DD2CD5333BF97F29F2142B66 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,9 +172,30 @@
 			isa = PBXGroup;
 			children = (
 				0E75953725A6403800B5C649 /* Model.swift */,
-				0E75953825A6403800B5C649 /* LinkTileModel.swift */,
+				0E75953825A6403800B5C649 /* LinkTile.swift */,
+				0E85347925E0220400157B77 /* Category.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3DF9C5CFB8FD5725F34F9069 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70F49B10FECCBB6EF686AB2E /* Pods_Linky.framework */,
+				8C7D9A929A30F4ACBD16C3E0 /* Pods_LinkyShareExtension.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD2CD5333BF97F29F2142B66 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2A51C939DD94F18F5E54B54F /* Pods-Linky.debug.xcconfig */,
+				D8A550CA10C7D61EBEF31523 /* Pods-Linky.release.xcconfig */,
+				2E3161C11678222874B04936 /* Pods-LinkyShareExtension.debug.xcconfig */,
+				CF80A10696C69343626B3251 /* Pods-LinkyShareExtension.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,10 +205,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E19638425A21FDA00EF79EF /* Build configuration list for PBXNativeTarget "Linky" */;
 			buildPhases = (
+				5974F988CAAC53EA97A4342D /* [CP] Check Pods Manifest.lock */,
 				0E19635B25A21FD900EF79EF /* Sources */,
 				0E19635C25A21FD900EF79EF /* Frameworks */,
 				0E19635D25A21FD900EF79EF /* Resources */,
 				0E3C13CE25D0074B002D436D /* Embed App Extensions */,
+				9E61815BAC61EE21660C410D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -187,6 +226,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E3C13D125D0074B002D436D /* Build configuration list for PBXNativeTarget "LinkyShareExtension" */;
 			buildPhases = (
+				811CF678573B96146AAE8F9B /* [CP] Check Pods Manifest.lock */,
 				0E3C13BF25D0074A002D436D /* Sources */,
 				0E3C13C025D0074A002D436D /* Frameworks */,
 				0E3C13C125D0074A002D436D /* Resources */,
@@ -256,17 +296,82 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5974F988CAAC53EA97A4342D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Linky-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		811CF678573B96146AAE8F9B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LinkyShareExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E61815BAC61EE21660C410D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Linky/Pods-Linky-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Linky/Pods-Linky-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Linky/Pods-Linky-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0E19635B25A21FD900EF79EF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E75953A25A6403800B5C649 /* LinkTileModel.swift in Sources */,
+				0E75953A25A6403800B5C649 /* LinkTile.swift in Sources */,
 				0E75954C25A640BC00B5C649 /* InformationView.swift in Sources */,
 				0E75954225A6408300B5C649 /* ActionSheetView.swift in Sources */,
 				0E75952925A6401200B5C649 /* AddPopUpView.swift in Sources */,
 				0E75953225A6402800B5C649 /* LinkyApp.swift in Sources */,
 				0E75952825A6401200B5C649 /* LinkListView.swift in Sources */,
+				0E85347A25E0220400157B77 /* Category.swift in Sources */,
 				0E75953925A6403800B5C649 /* Model.swift in Sources */,
 				0E75954725A6409800B5C649 /* CalendarView.swift in Sources */,
 			);
@@ -277,6 +382,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E3C13C625D0074A002D436D /* ShareViewController.swift in Sources */,
+				0E01FBA225E1A9BE00080928 /* LinkTile.swift in Sources */,
+				0E85347B25E0220400157B77 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,8 +527,9 @@
 		};
 		0E19638525A21FDA00EF79EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A51C939DD94F18F5E54B54F /* Pods-Linky.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -443,8 +551,9 @@
 		};
 		0E19638625A21FDA00EF79EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8A550CA10C7D61EBEF31523 /* Pods-Linky.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -466,7 +575,9 @@
 		};
 		0E3C13CF25D0074B002D436D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E3161C11678222874B04936 /* Pods-LinkyShareExtension.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C43N923FE6;
 				INFOPLIST_FILE = LinkyShareExtension/Info.plist;
@@ -486,7 +597,9 @@
 		};
 		0E3C13D025D0074B002D436D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF80A10696C69343626B3251 /* Pods-LinkyShareExtension.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C43N923FE6;
 				INFOPLIST_FILE = LinkyShareExtension/Info.plist;
