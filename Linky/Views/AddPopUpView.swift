@@ -39,8 +39,15 @@ struct AddPopUpView: View {
     @EnvironmentObject var model: Model
     @State var link: String = ""
     @State var name: String = ""
+    var realm = try! Realm()
     
-    let realm = try! Realm()
+    init() {
+        let fileURL = FileManager.default
+            .containerURL(forSecurityApplicationGroupIdentifier: "group.linky")!
+            .appendingPathComponent("default.realm")
+        let config = Realm.Configuration(fileURL: fileURL)
+        self.realm = try! Realm(configuration: config)
+    }
     
     var body: some View {
         ZStack {

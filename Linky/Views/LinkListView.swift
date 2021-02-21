@@ -53,8 +53,15 @@ extension UIScreen {
 //MARK: - LinkListView
 struct LinkListView: View {
     var realm = try! Realm()
+    @ObservedObject var linkArray: BindableResults<LinkTile>
+    init() {
+        let fileURL = FileManager.default
+            .containerURL(forSecurityApplicationGroupIdentifier: "group.linky")!
+            .appendingPathComponent("default.realm")
+        let config = Realm.Configuration(fileURL: fileURL)
+        self.linkArray = BindableResults(results: try! Realm(configuration: config).objects(LinkTile.self))
+    }
     
-    @ObservedObject var linkArray = BindableResults(results: try! Realm().objects(LinkTile.self))
     @EnvironmentObject var model: Model
     private let dateFormatter = DateFormatter()
 
@@ -108,8 +115,10 @@ struct LinkListView: View {
             }
         }
         .onAppear{
-            let sharedLink = UserDefaults.group.object(forKey: "sharedLinks")
-            self.storeSharedLink(sharedLink as! [String])
+            if let sharedLink = UserDefaults.group.array(forKey: "sharedLinks") {
+                self.storeSharedLink(sharedLink as! [String])
+            }
+            UserDefaults().removePersistentDomain(forName: "group.linky")
         }
     }
     

@@ -16,11 +16,6 @@ class ShareViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let fileURL = FileManager.default
-//            .containerURL(forSecurityApplicationGroupIdentifier: "group.linky")!
-//            .appendingPathComponent("default.realm")
-//        let config = Realm.Configuration(fileURL: fileURL)
-//        self.realm = try! Realm(configuration: config)
         
         let vc = UIHostingController(rootView: ShareLinkPopUp(doneFunction: self.doneAction, cancelFunction: self.cancelAction))
         present(vc, animated: true, completion: nil)
@@ -45,16 +40,18 @@ class ShareViewController: UIViewController {
         let contentType = kUTTypeURL as String
         print(attachments)
         for provider in attachments {
-            print("World")
 //            check if the content type is the same as we expected
             if provider.hasItemConformingToTypeIdentifier(contentType) {
                 provider.loadItem(forTypeIdentifier: contentType, options: nil) { [unowned self] (data, error) in
 //                    Handle the error here if you want
                     guard error == nil else {return}
-                    print("Hello")
                     if let url = data as? URL{
-                        let linkInfos = [name, url.absoluteString]
-                        self.save(linkInfos)
+//                        let linkInfos = [name, url.absoluteString]
+                        let newLinkTile = LinkTile()
+                        newLinkTile.name = name
+                        newLinkTile.link = url.absoluteString
+                        newLinkTile.id = UUID().hashValue
+                        self.save(newLinkTile)
                         
                     }else {
                         fatalError("Impossible to save link!")
@@ -64,15 +61,21 @@ class ShareViewController: UIViewController {
         }
     }
     
-    private func save(_ link: [String]) {
-        UserDefaults.group.set(link, forKey: "sharedLinks")
-//        do {
-//            try realm.write{
-//                realm.add(link)
-//            }
-//        } catch {
-//            print("Error message: \(error)")
-//        }
+    private func save(_ link: LinkTile) {
+//        UserDefaults.group.set(link, forKey: "sharedLinks")
+        // Query and update from any thread
+        DispatchQueue(label: "background").async {
+            autoreleasepool {
+                let fileURL = FileManager.default
+                    .containerURL(forSecurityApplicationGroupIdentifier: "group.linky")!
+                    .appendingPathComponent("default.realm")
+                let realm = try! Realm(configuration: Realm.Configuration(fileURL: fileURL))
+                try! realm.write {
+                    realm.add(link)
+                    print(link)
+                }
+            }
+        }
     }
 }
 
@@ -85,11 +88,13 @@ struct ShareLinkPopUp: View {
         TextField("Enter name of Link", text: $name)
         
         VStack {
-            Button("Cancel") {
-                cancelFunction()
-            }
-            Button("Done") {
-                doneFunction(name)
+            HStack {
+                Button("Cancel") {
+                    cancelFunction()
+                }
+                Button("Done") {
+                    doneFunction(name)
+                }
             }
         }
     }
