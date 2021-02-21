@@ -10,6 +10,7 @@
 		0E01FBA225E1A9BE00080928 /* LinkTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75953825A6403800B5C649 /* LinkTile.swift */; };
 		0E19636725A21FDA00EF79EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E19636625A21FDA00EF79EF /* Assets.xcassets */; };
 		0E19636A25A21FDA00EF79EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E19636925A21FDA00EF79EF /* Preview Assets.xcassets */; };
+		0E3273E625E26B6D00E880A2 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3C13C525D0074A002D436D /* ShareViewController.swift */; };
 		0E3C13C625D0074A002D436D /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3C13C525D0074A002D436D /* ShareViewController.swift */; };
 		0E3C13C925D0074B002D436D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3C13C725D0074B002D436D /* MainInterface.storyboard */; };
 		0E3C13CD25D0074B002D436D /* LinkyShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0E3C13C325D0074A002D436D /* LinkyShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -23,6 +24,7 @@
 		0E75954C25A640BC00B5C649 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75954B25A640BC00B5C649 /* InformationView.swift */; };
 		0E85347A25E0220400157B77 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E85347925E0220400157B77 /* Category.swift */; };
 		0E85347B25E0220400157B77 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E85347925E0220400157B77 /* Category.swift */; };
+		0EF9767B25E1CE4B00AA92E8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75953725A6403800B5C649 /* Model.swift */; };
 		3C2F4006E4FC60C1F7836D6C /* Pods_LinkyShareExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C7D9A929A30F4ACBD16C3E0 /* Pods_LinkyShareExtension.framework */; };
 		3C94B8143B84DC1DEAD3F751 /* Pods_Linky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F49B10FECCBB6EF686AB2E /* Pods_Linky.framework */; };
 /* End PBXBuildFile section */
@@ -56,6 +58,7 @@
 		0E19636625A21FDA00EF79EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E19636925A21FDA00EF79EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0E19636B25A21FDA00EF79EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E3273E325E263D700E880A2 /* LinkyShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LinkyShareExtension.entitlements; sourceTree = "<group>"; };
 		0E3C13C325D0074A002D436D /* LinkyShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LinkyShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E3C13C525D0074A002D436D /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		0E3C13C825D0074B002D436D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -141,6 +144,7 @@
 		0E3C13C425D0074A002D436D /* LinkyShareExtension */ = {
 			isa = PBXGroup;
 			children = (
+				0E3273E325E263D700E880A2 /* LinkyShareExtension.entitlements */,
 				0E3C13C525D0074A002D436D /* ShareViewController.swift */,
 				0E3C13C725D0074B002D436D /* MainInterface.storyboard */,
 				0E3C13CA25D0074B002D436D /* Info.plist */,
@@ -367,6 +371,7 @@
 			files = (
 				0E75953A25A6403800B5C649 /* LinkTile.swift in Sources */,
 				0E75954C25A640BC00B5C649 /* InformationView.swift in Sources */,
+				0E3273E625E26B6D00E880A2 /* ShareViewController.swift in Sources */,
 				0E75954225A6408300B5C649 /* ActionSheetView.swift in Sources */,
 				0E75952925A6401200B5C649 /* AddPopUpView.swift in Sources */,
 				0E75953225A6402800B5C649 /* LinkyApp.swift in Sources */,
@@ -384,6 +389,7 @@
 				0E3C13C625D0074A002D436D /* ShareViewController.swift in Sources */,
 				0E01FBA225E1A9BE00080928 /* LinkTile.swift in Sources */,
 				0E85347B25E0220400157B77 /* Category.swift in Sources */,
+				0EF9767B25E1CE4B00AA92E8 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +538,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Linky/Linky.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Linky/Preview Content\"";
 				DEVELOPMENT_TEAM = C43N923FE6;
@@ -556,6 +563,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Linky/Linky.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Linky/Preview Content\"";
 				DEVELOPMENT_TEAM = C43N923FE6;
@@ -578,6 +586,7 @@
 			baseConfigurationReference = 2E3161C11678222874B04936 /* Pods-LinkyShareExtension.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_ENTITLEMENTS = LinkyShareExtension/LinkyShareExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C43N923FE6;
 				INFOPLIST_FILE = LinkyShareExtension/Info.plist;
@@ -600,6 +609,7 @@
 			baseConfigurationReference = CF80A10696C69343626B3251 /* Pods-LinkyShareExtension.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_ENTITLEMENTS = LinkyShareExtension/LinkyShareExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C43N923FE6;
 				INFOPLIST_FILE = LinkyShareExtension/Info.plist;

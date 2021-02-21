@@ -15,7 +15,6 @@ class Model: ObservableObject {
     @Published var showCalendar = false
     @Published var showInformation = false
     @Published var tappedLinktile: LinkTile?
-    @Published var links: [LinkTile]!
     @Published var date = Date()
     
     // data settings

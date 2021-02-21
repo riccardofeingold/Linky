@@ -52,15 +52,16 @@ extension UIScreen {
 
 //MARK: - LinkListView
 struct LinkListView: View {
-    let realm = try! Realm()
+    var realm = try! Realm()
     
+    @ObservedObject var linkArray = BindableResults(results: try! Realm().objects(LinkTile.self))
     @EnvironmentObject var model: Model
     private let dateFormatter = DateFormatter()
 
     var body: some View {
         ZStack{
             Group {
-                List(model.links ?? []){ links in
+                List(linkArray.results){ links in
                     LinkTileRow(linkTile: links)
                 }
                 
@@ -107,14 +108,25 @@ struct LinkListView: View {
             }
         }
         .onAppear{
-            load_links()
+            let sharedLink = UserDefaults.group.object(forKey: "sharedLinks")
+            self.storeSharedLink(sharedLink as! [String])
         }
     }
     
-    func load_links() {
-        model.links = Array(realm.objects(LinkTile.self))
+    func storeSharedLink(_ link: [String]) {
+        let linkTile = LinkTile()
+        linkTile.id = UUID().hashValue
+        linkTile.name = link[0]
+        linkTile.link = link[1]
+        
+        do {
+            try realm.write{
+                realm.add(linkTile)
+            }
+        } catch {
+            print("Error message: \(error)")
+        }
     }
-    
     func addLinkToList() -> Void {
         model.showPopUp = true
     }
@@ -158,5 +170,27 @@ struct LinkListView_Previews: PreviewProvider {
     static var previews: some View {
         LinkListView().environmentObject(Model())
         AddPopUpView().previewLayout(.sizeThatFits).environmentObject(Model())
+    }
+}
+
+//MARK: - With this Class you can use can combine realm results with swiftui data logic
+class BindableResults<Element>: ObservableObject where Element: RealmSwift.RealmCollectionValue {
+
+    var results: Results<Element>
+    private var token: NotificationToken!
+
+    init(results: Results<Element>) {
+        self.results = results
+        lateInit()
+    }
+
+    func lateInit() {
+        token = results.observe { [weak self] _ in
+            self?.objectWillChange.send()
+        }
+    }
+
+    deinit {
+        token.invalidate()
     }
 }

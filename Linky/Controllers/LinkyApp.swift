@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct LinkyApp: App {
+    @Environment(\.scenePhase) var scenePhase
     var body: some Scene {
         WindowGroup {
             LinkListView()

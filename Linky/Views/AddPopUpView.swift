@@ -94,7 +94,6 @@ struct AddPopUpView: View {
                         linkTile.id = UUID().hashValue
                         linkTile.name = name
                         linkTile.link = link
-                        model.links.append(linkTile)
                         
                         self.save(linkTile)
                         
