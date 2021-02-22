@@ -111,7 +111,7 @@ struct LinkListView: View {
             }
             
             if model.showInformation {
-                InformationView(linkName: model.tappedLinktile!.name, link: model.tappedLinktile!.link, linkText: "asölkafösdlkjasöldj")
+                InformationView(linkName: model.tappedLinktile!.name, link: model.tappedLinktile!.link, linkText: model.tappedLinktile?.text ?? "")
             }
         }
         .onAppear{

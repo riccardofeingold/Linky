@@ -20,7 +20,6 @@
 		0E75953225A6402800B5C649 /* LinkyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75953125A6402800B5C649 /* LinkyApp.swift */; };
 		0E75953925A6403800B5C649 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75953725A6403800B5C649 /* Model.swift */; };
 		0E75953A25A6403800B5C649 /* LinkTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75953825A6403800B5C649 /* LinkTile.swift */; };
-		0E75954225A6408300B5C649 /* ActionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75954125A6408300B5C649 /* ActionSheetView.swift */; };
 		0E75954725A6409800B5C649 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75954625A6409800B5C649 /* CalendarView.swift */; };
 		0E75954C25A640BC00B5C649 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75954B25A640BC00B5C649 /* InformationView.swift */; };
 		0E85347A25E0220400157B77 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E85347925E0220400157B77 /* Category.swift */; };
@@ -69,7 +68,6 @@
 		0E75953125A6402800B5C649 /* LinkyApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkyApp.swift; sourceTree = "<group>"; };
 		0E75953725A6403800B5C649 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		0E75953825A6403800B5C649 /* LinkTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkTile.swift; sourceTree = "<group>"; };
-		0E75954125A6408300B5C649 /* ActionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetView.swift; sourceTree = "<group>"; };
 		0E75954625A6409800B5C649 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		0E75954B25A640BC00B5C649 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		0E85347925E0220400157B77 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 			children = (
 				0E75952625A6401200B5C649 /* LinkListView.swift */,
 				0E75952725A6401200B5C649 /* AddPopUpView.swift */,
-				0E75954125A6408300B5C649 /* ActionSheetView.swift */,
 				0E75954625A6409800B5C649 /* CalendarView.swift */,
 				0E75954B25A640BC00B5C649 /* InformationView.swift */,
 			);
@@ -374,7 +371,6 @@
 				0E75953A25A6403800B5C649 /* LinkTile.swift in Sources */,
 				0E75954C25A640BC00B5C649 /* InformationView.swift in Sources */,
 				0E3273E625E26B6D00E880A2 /* ShareViewController.swift in Sources */,
-				0E75954225A6408300B5C649 /* ActionSheetView.swift in Sources */,
 				0E75952925A6401200B5C649 /* AddPopUpView.swift in Sources */,
 				0E75953225A6402800B5C649 /* LinkyApp.swift in Sources */,
 				0E75952825A6401200B5C649 /* LinkListView.swift in Sources */,

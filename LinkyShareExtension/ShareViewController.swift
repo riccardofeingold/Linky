@@ -21,8 +21,8 @@ class ShareViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
     
-    func doneAction(_ name: String) {
-        self.handleSharedLinks(nameOfWebsite: name)
+    func doneAction(_ name: String,_ text: String) {
+        self.handleSharedLinks(nameOfWebsite: name, with: text)
         self.extensionContext?.completeRequest(returningItems: [], completionHandler: nil)
     }
     
@@ -34,7 +34,7 @@ class ShareViewController: UIViewController {
         }
     }
     
-    private func handleSharedLinks(nameOfWebsite name: String) {
+    private func handleSharedLinks(nameOfWebsite name: String,with text: String) {
 //        Extracting the path to the URL that is being shared
         let attachments = (self.extensionContext?.inputItems.first as? NSExtensionItem)?.attachments ?? []
         let contentType = kUTTypeURL as String
@@ -49,6 +49,7 @@ class ShareViewController: UIViewController {
 //                        let linkInfos = [name, url.absoluteString]
                         let newLinkTile = LinkTile()
                         newLinkTile.name = name
+                        newLinkTile.text = text
                         newLinkTile.link = url.absoluteString
                         newLinkTile.id = UUID().hashValue
                         self.save(newLinkTile)
@@ -79,9 +80,10 @@ class ShareViewController: UIViewController {
 }
 
 struct ShareLinkPopUp: View {
-    let doneFunction: (_ name: String) -> Void
+    let doneFunction: (_ name: String,_ text: String) -> Void
     let cancelFunction: () -> Void
     @State var name: String = ""
+    @State var text: String = ""
     
     var body: some View {
         VStack {
@@ -102,13 +104,17 @@ struct ShareLinkPopUp: View {
                 .font(.title2)
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 20))
             
+            TextField("Notes", text: $text)
+                .font(.body)
+                .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 20))
+            
             Spacer()
             
             HStack {
                 Spacer()
                 
                 Button(action: {
-                    doneFunction(name)
+                    doneFunction(name, text)
                 }, label: {
                     ZStack {
                         

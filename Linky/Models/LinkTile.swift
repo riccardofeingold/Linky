@@ -14,6 +14,7 @@ class LinkTile: Object, Identifiable {
     @objc dynamic var id = 0
     @objc dynamic var name: String = ""
     @objc dynamic var link: String = ""
+    @objc dynamic var text: String = ""
     
     var parentCategory = LinkingObjects(fromType: Category.self, property: "linkTiles")
 }
