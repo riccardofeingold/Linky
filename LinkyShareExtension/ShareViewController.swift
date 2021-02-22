@@ -72,7 +72,6 @@ class ShareViewController: UIViewController {
                 let realm = try! Realm(configuration: Realm.Configuration(fileURL: fileURL))
                 try! realm.write {
                     realm.add(link)
-                    print(link)
                 }
             }
         }
@@ -85,16 +84,44 @@ struct ShareLinkPopUp: View {
     @State var name: String = ""
     
     var body: some View {
-        TextField("Enter name of Link", text: $name)
-        
         VStack {
+            Button(action: {
+                cancelFunction()
+            }, label: {
+                HStack {
+                    Spacer()
+                    
+                    Image(systemName: "xmark")
+                        .font(.title2)
+                        .foregroundColor(.gray)
+                        .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 20))
+                }
+            })
+            
+            TextField("Name your link", text: $name)
+                .font(.title2)
+                .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 20))
+            
+            Spacer()
+            
             HStack {
-                Button("Cancel") {
-                    cancelFunction()
-                }
-                Button("Done") {
+                Spacer()
+                
+                Button(action: {
                     doneFunction(name)
-                }
+                }, label: {
+                    ZStack {
+                        
+                        Text("Save")
+                            .font(.body)
+                            .foregroundColor(.white)
+                            .bold()
+                            .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                            .background(Color.blue)
+                            .cornerRadius(5.0)
+                    }
+                })
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 10))
             }
         }
     }
