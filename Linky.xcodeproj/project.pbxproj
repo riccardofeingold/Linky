@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0E01FBA225E1A9BE00080928 /* LinkTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75953825A6403800B5C649 /* LinkTile.swift */; };
 		0E072C5F25E2B4C8001D9840 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E19636625A21FDA00EF79EF /* Assets.xcassets */; };
+		0E096EFF25E57AC40077B651 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E096EFE25E57AC40077B651 /* TextView.swift */; };
+		0E096F0025E57AC40077B651 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E096EFE25E57AC40077B651 /* TextView.swift */; };
 		0E19636725A21FDA00EF79EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E19636625A21FDA00EF79EF /* Assets.xcassets */; };
 		0E19636A25A21FDA00EF79EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E19636925A21FDA00EF79EF /* Preview Assets.xcassets */; };
 		0E3273E625E26B6D00E880A2 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3C13C525D0074A002D436D /* ShareViewController.swift */; };
@@ -54,6 +56,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E096EFE25E57AC40077B651 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		0E19635F25A21FD900EF79EF /* Linky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Linky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E19636625A21FDA00EF79EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E19636925A21FDA00EF79EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -158,6 +161,7 @@
 				0E75952725A6401200B5C649 /* AddPopUpView.swift */,
 				0E75954625A6409800B5C649 /* CalendarView.swift */,
 				0E75954B25A640BC00B5C649 /* InformationView.swift */,
+				0E096EFE25E57AC40077B651 /* TextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -377,6 +381,7 @@
 				0E85347A25E0220400157B77 /* Category.swift in Sources */,
 				0E75953925A6403800B5C649 /* Model.swift in Sources */,
 				0E75954725A6409800B5C649 /* CalendarView.swift in Sources */,
+				0E096EFF25E57AC40077B651 /* TextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +393,7 @@
 				0E01FBA225E1A9BE00080928 /* LinkTile.swift in Sources */,
 				0E85347B25E0220400157B77 /* Category.swift in Sources */,
 				0EF9767B25E1CE4B00AA92E8 /* Model.swift in Sources */,
+				0E096F0025E57AC40077B651 /* TextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
