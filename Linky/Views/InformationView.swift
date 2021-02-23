@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct InformationView: View {
-    let linkName: String
     let link: String
-    let linkText: String
     
+    @State var linkName: String
+    @State var disableEditing: Bool = true
+    @State var linkText: String
     @State var showingShareSheet = false
     @State var startEaseOut: Bool = false
     @State var offset = CGSize.zero
@@ -24,13 +25,16 @@ struct InformationView: View {
                 HStack {
                     VStack (alignment: .leading) {
                         
-                        Text(linkName)
+                        TextEditor(text: $linkName)
                             .font(Font.custom("Helvetica Neue", fixedSize: 30).weight(.bold))
                             .foregroundColor(.blue)
                             .padding(.bottom)
+                            .lineLimit(1)
+                            .disabled(disableEditing == true)
                         
                         Text(link)
                             .foregroundColor(.blue)
+                            .lineLimit(1)
                     }
                     .padding(.leading)
                     
@@ -43,15 +47,16 @@ struct InformationView: View {
                         .padding(.trailing)
                 }
                                 
-                Text(linkText)
+                TextEditor(text: $linkText)
                     .foregroundColor(.gray)
                     .padding()
+                    .disabled(disableEditing == true)
                 
                 Spacer()
                 
                 HStack {
                     Button(action: {
-                        print("Editing")
+                        disableEditing.toggle()
                     }, label: {
                         Image(systemName: "pencil.circle.fill")
                             .resizable()
@@ -129,7 +134,7 @@ struct ShareView: UIViewControllerRepresentable {
 
 struct InformationView_Previews: PreviewProvider {
     static var previews: some View {
-        InformationView(linkName: "Google", link: "www.google.com", linkText: "aölsdkfaölsdjfa alsdkjfa öal dlakj söda sö alsj").previewLayout(.sizeThatFits)
+        InformationView(link: "www.google.com", linkName: "Google", linkText: "aölsdkfaölsdjfa")
             .environmentObject(Model())
     }
 }

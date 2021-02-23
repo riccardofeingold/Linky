@@ -72,23 +72,25 @@ struct LinkListView: View {
                     LinkTileRow(linkTile: links)
                 }
                 
-                Button(action: addLinkToList, label: {
-                    ZStack {
-                        Circle()
-                            .size(width: UIScreen.symbolSize, height: UIScreen.symbolSize)
-                            .foregroundColor(.white)
-                            .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize, alignment: .center)
-                            .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 0))
-                        
-                        Image(systemName: "plus.circle.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize, alignment: .center)
-                            .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 0))
-                            .foregroundColor(.blue)
-                    }
-                })
-                .position(x: UIScreen.screenWidth/10*8, y: UIScreen.screenHeight/10*9)
+//                Add Button
+//                Button(action: addLinkToList, label: {
+//                    ZStack {
+//                        Circle()
+//                            .size(width: UIScreen.symbolSize, height: UIScreen.symbolSize)
+//                            .foregroundColor(.white)
+//                            .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize, alignment: .center)
+//                            .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 0))
+//
+//                        Image(systemName: "plus.circle.fill")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize, alignment: .center)
+//                            .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 0))
+//                            .foregroundColor(.blue)
+//                    }
+//                })
+//                .position(x: UIScreen.screenWidth/10*8, y: UIScreen.screenHeight/10*9)
+                
             }
             .opacity(model.showPopUp ? 0.3 : 1)
             .onTapGesture {
@@ -111,7 +113,7 @@ struct LinkListView: View {
             }
             
             if model.showInformation {
-                InformationView(linkName: model.tappedLinktile!.name, link: model.tappedLinktile!.link, linkText: model.tappedLinktile?.text ?? "")
+                InformationView(link: model.tappedLinktile!.link, linkName: model.tappedLinktile!.name, linkText: model.tappedLinktile?.text ?? "")
             }
         }
         .onAppear{
