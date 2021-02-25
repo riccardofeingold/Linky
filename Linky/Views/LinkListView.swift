@@ -53,14 +53,18 @@ extension UIScreen {
 //MARK: - LinkListView
 struct LinkListView: View {
     @State var searchTerm: String = ""
+    @State var editMode = EditMode.inactive
     @ObservedObject var linkArray: BindableResults<LinkTile>
     @ObservedObject var searchBar = SearchBar()
+    @EnvironmentObject var model: Model
     
+    private let dateFormatter = DateFormatter()
     var realm = try! Realm()
     
     init() {
         //Use this if NavigationBarTitle is with Large Font
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.blue)]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color.blue)]
         
         let fileURL = FileManager.default
             .containerURL(forSecurityApplicationGroupIdentifier: "group.linky")!
@@ -68,9 +72,6 @@ struct LinkListView: View {
         let config = Realm.Configuration(fileURL: fileURL)
         self.linkArray = BindableResults(results: try! Realm(configuration: config).objects(LinkTile.self))
     }
-    
-    @EnvironmentObject var model: Model
-    private let dateFormatter = DateFormatter()
 
     var body: some View {
         NavigationView {
@@ -93,6 +94,34 @@ struct LinkListView: View {
                 if model.showInformation {
                     InformationView(link: model.tappedLinktile!.link, linkName: model.tappedLinktile!.name, linkText: model.tappedLinktile?.text ?? "")
                 }
+                HStack {
+                    Spacer()
+                    
+                    VStack {
+                        Spacer()
+                        
+                        Button(action: {
+                            print("Edit")
+                        }, label: {
+                            ZStack {
+                                Circle()
+                                    .size(width: UIScreen.symbolSize, height: UIScreen.symbolSize)
+                                    .foregroundColor(.white)
+                                    .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize, alignment: .center)
+                                    .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 0))
+                                    .shadow(radius: 1)
+
+                                Image(systemName: "pencil.circle.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize, alignment: .center)
+                                    .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 0))
+                                    .foregroundColor(.blue)
+                            }
+                        })
+                        .padding(.trailing, 20)
+                    }
+                }
             }
             .onAppear{
                 if let sharedLink = UserDefaults.group.array(forKey: "sharedLinks") {
@@ -101,6 +130,7 @@ struct LinkListView: View {
                 UserDefaults().removePersistentDomain(forName: "group.linky")
             }
             .navigationBarTitle("Linky")
+            .environment(\.editMode, $editMode)
         }
     }
     
@@ -117,9 +147,6 @@ struct LinkListView: View {
         } catch {
             print("Error message: \(error)")
         }
-    }
-    func addLinkToList() -> Void {
-        model.showPopUp = true
     }
 }
 
@@ -234,22 +261,3 @@ class BindableResults<Element>: ObservableObject where Element: RealmSwift.Realm
 //                        .transition(.move(edge: .bottom))
 //                        .animation(.easeOut)
 //                }
-
-//                Add Button
-//                Button(action: addLinkToList, label: {
-//                    ZStack {
-//                        Circle()
-//                            .size(width: UIScreen.symbolSize, height: UIScreen.symbolSize)
-//                            .foregroundColor(.white)
-//                            .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize, alignment: .center)
-//                            .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 0))
-//
-//                        Image(systemName: "plus.circle.fill")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize, alignment: .center)
-//                            .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 0))
-//                            .foregroundColor(.blue)
-//                    }
-//                })
-//                .position(x: UIScreen.screenWidth/10*8, y: UIScreen.screenHeight/10*9)
