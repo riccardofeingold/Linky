@@ -54,9 +54,14 @@ extension UIScreen {
 struct LinkListView: View {
     @State var searchTerm: String = ""
     @ObservedObject var linkArray: BindableResults<LinkTile>
+    @ObservedObject var searchBar = SearchBar()
+    
     var realm = try! Realm()
     
     init() {
+        //Use this if NavigationBarTitle is with Large Font
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.blue)]
+        
         let fileURL = FileManager.default
             .containerURL(forSecurityApplicationGroupIdentifier: "group.linky")!
             .appendingPathComponent("default.realm")
@@ -68,17 +73,16 @@ struct LinkListView: View {
     private let dateFormatter = DateFormatter()
 
     var body: some View {
-        CustomNavigationView(destination: LinkListView(), isRoot: true, isLast: true, color: .blue, navBarTitle: "Linky", content: {
+        NavigationView {
             ZStack{
-                VStack(alignment: .leading) {
-                    SearchBar(text: $searchTerm)
-                    
-                    List(linkArray.results.filter({searchTerm.isEmpty ? true : $0.name.contains(searchTerm)})){ links in
+                List {
+                    ForEach(linkArray.results.filter({searchBar.text.isEmpty ? true : $0.name.contains(searchBar.text)})){ links in
                         LinkTileRow(linkTile: links)
                     }
-                    .padding(.all, 0)
-                    .listStyle(PlainListStyle())
                 }
+                .padding(.all, 0)
+                .listStyle(PlainListStyle())
+                .add(self.searchBar)
                 
                 if (model.showPopUp) {
                     AddPopUpView()
@@ -96,7 +100,8 @@ struct LinkListView: View {
                 }
                 UserDefaults().removePersistentDomain(forName: "group.linky")
             }
-        })
+            .navigationBarTitle("Linky")
+        }
     }
     
     func storeSharedLink(_ link: [String]) {
@@ -118,6 +123,7 @@ struct LinkListView: View {
     }
 }
 
+//MARK: - LinkCell
 struct LinkTileRow: View {
     var linkTile: LinkTile
     @EnvironmentObject var model: Model
@@ -156,6 +162,44 @@ struct LinkListView_Previews: PreviewProvider {
     static var previews: some View {
         LinkListView().environmentObject(Model())
         AddPopUpView().previewLayout(.sizeThatFits).environmentObject(Model())
+    }
+}
+
+//MARK: - Add search bar to navigationbar
+final class ViewControllerResolver: UIViewControllerRepresentable {
+    
+    let onResolve: (UIViewController) -> Void
+        
+    init(onResolve: @escaping (UIViewController) -> Void) {
+        self.onResolve = onResolve
+    }
+    
+    func makeUIViewController(context: Context) -> ParentResolverViewController {
+        ParentResolverViewController(onResolve: onResolve)
+    }
+    
+    func updateUIViewController(_ uiViewController: ParentResolverViewController, context: Context) { }
+}
+
+class ParentResolverViewController: UIViewController {
+    
+    let onResolve: (UIViewController) -> Void
+    
+    init(onResolve: @escaping (UIViewController) -> Void) {
+        self.onResolve = onResolve
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("Use init(onResolve:) to instantiate ParentResolverViewController.")
+    }
+        
+    override func didMove(toParent parent: UIViewController?) {
+        super.didMove(toParent: parent)
+        
+        if let parent = parent {
+            onResolve(parent)
+        }
     }
 }
 
