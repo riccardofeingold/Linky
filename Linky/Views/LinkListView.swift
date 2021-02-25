@@ -52,8 +52,10 @@ extension UIScreen {
 
 //MARK: - LinkListView
 struct LinkListView: View {
-    var realm = try! Realm()
+    @State var searchTerm: String = ""
     @ObservedObject var linkArray: BindableResults<LinkTile>
+    var realm = try! Realm()
+    
     init() {
         let fileURL = FileManager.default
             .containerURL(forSecurityApplicationGroupIdentifier: "group.linky")!
@@ -66,62 +68,35 @@ struct LinkListView: View {
     private let dateFormatter = DateFormatter()
 
     var body: some View {
-        ZStack{
-            Group {
-                List(linkArray.results){ links in
-                    LinkTileRow(linkTile: links)
+        CustomNavigationView(destination: LinkListView(), isRoot: true, isLast: true, color: .blue, navBarTitle: "Linky", content: {
+            ZStack{
+                VStack(alignment: .leading) {
+                    SearchBar(text: $searchTerm)
+                    
+                    List(linkArray.results.filter({searchTerm.isEmpty ? true : $0.name.contains(searchTerm)})){ links in
+                        LinkTileRow(linkTile: links)
+                    }
+                    .padding(.all, 0)
+                    .listStyle(PlainListStyle())
                 }
                 
-//                Add Button
-//                Button(action: addLinkToList, label: {
-//                    ZStack {
-//                        Circle()
-//                            .size(width: UIScreen.symbolSize, height: UIScreen.symbolSize)
-//                            .foregroundColor(.white)
-//                            .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize, alignment: .center)
-//                            .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 0))
-//
-//                        Image(systemName: "plus.circle.fill")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize, alignment: .center)
-//                            .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 0))
-//                            .foregroundColor(.blue)
-//                    }
-//                })
-//                .position(x: UIScreen.screenWidth/10*8, y: UIScreen.screenHeight/10*9)
+                if (model.showPopUp) {
+                    AddPopUpView()
+                        .transition(.move(edge: .bottom))
+                        .animation(.easeOut)
+                }
                 
+                if model.showInformation {
+                    InformationView(link: model.tappedLinktile!.link, linkName: model.tappedLinktile!.name, linkText: model.tappedLinktile?.text ?? "")
+                }
             }
-            .opacity(model.showPopUp ? 0.3 : 1)
-            .onTapGesture {
-                print(model.date)
-//                model.showCalendar = false
+            .onAppear{
+                if let sharedLink = UserDefaults.group.array(forKey: "sharedLinks") {
+                    self.storeSharedLink(sharedLink as! [String])
+                }
+                UserDefaults().removePersistentDomain(forName: "group.linky")
             }
-            
-            if (model.showPopUp) {
-                AddPopUpView()
-                    .transition(.move(edge: .bottom))
-                    .animation(.easeOut)
-//                    .opacity(model.showCalendar ? 0.3 : 1)
-
-//                if model.showCalendar {
-//                    CalendarView()
-//                        .cornerRadius(20)
-//                        .transition(.move(edge: .bottom))
-//                        .animation(.easeOut)
-//                }
-            }
-            
-            if model.showInformation {
-                InformationView(link: model.tappedLinktile!.link, linkName: model.tappedLinktile!.name, linkText: model.tappedLinktile?.text ?? "")
-            }
-        }
-        .onAppear{
-            if let sharedLink = UserDefaults.group.array(forKey: "sharedLinks") {
-                self.storeSharedLink(sharedLink as! [String])
-            }
-            UserDefaults().removePersistentDomain(forName: "group.linky")
-        }
+        })
     }
     
     func storeSharedLink(_ link: [String]) {
@@ -205,3 +180,32 @@ class BindableResults<Element>: ObservableObject where Element: RealmSwift.Realm
         token.invalidate()
     }
 }
+
+
+//                    .opacity(model.showCalendar ? 0.3 : 1)
+
+//                if model.showCalendar {
+//                    CalendarView()
+//                        .cornerRadius(20)
+//                        .transition(.move(edge: .bottom))
+//                        .animation(.easeOut)
+//                }
+
+//                Add Button
+//                Button(action: addLinkToList, label: {
+//                    ZStack {
+//                        Circle()
+//                            .size(width: UIScreen.symbolSize, height: UIScreen.symbolSize)
+//                            .foregroundColor(.white)
+//                            .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize, alignment: .center)
+//                            .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 0))
+//
+//                        Image(systemName: "plus.circle.fill")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize, alignment: .center)
+//                            .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 0))
+//                            .foregroundColor(.blue)
+//                    }
+//                })
+//                .position(x: UIScreen.screenWidth/10*8, y: UIScreen.screenHeight/10*9)

@@ -26,6 +26,8 @@
 		0E75954C25A640BC00B5C649 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75954B25A640BC00B5C649 /* InformationView.swift */; };
 		0E85347A25E0220400157B77 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E85347925E0220400157B77 /* Category.swift */; };
 		0E85347B25E0220400157B77 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E85347925E0220400157B77 /* Category.swift */; };
+		0EAD452D25E808E900F9DF8D /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAD452C25E808E900F9DF8D /* SearchBar.swift */; };
+		0EAD453125E814FC00F9DF8D /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAD453025E814FC00F9DF8D /* CustomNavigationView.swift */; };
 		0EF9767B25E1CE4B00AA92E8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75953725A6403800B5C649 /* Model.swift */; };
 		3C2F4006E4FC60C1F7836D6C /* Pods_LinkyShareExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C7D9A929A30F4ACBD16C3E0 /* Pods_LinkyShareExtension.framework */; };
 		3C94B8143B84DC1DEAD3F751 /* Pods_Linky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F49B10FECCBB6EF686AB2E /* Pods_Linky.framework */; };
@@ -74,6 +76,8 @@
 		0E75954625A6409800B5C649 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		0E75954B25A640BC00B5C649 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		0E85347925E0220400157B77 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		0EAD452C25E808E900F9DF8D /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		0EAD453025E814FC00F9DF8D /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
 		2A51C939DD94F18F5E54B54F /* Pods-Linky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Linky.debug.xcconfig"; path = "Target Support Files/Pods-Linky/Pods-Linky.debug.xcconfig"; sourceTree = "<group>"; };
 		2E3161C11678222874B04936 /* Pods-LinkyShareExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinkyShareExtension.debug.xcconfig"; path = "Target Support Files/Pods-LinkyShareExtension/Pods-LinkyShareExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		70F49B10FECCBB6EF686AB2E /* Pods_Linky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Linky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +166,8 @@
 				0E75954625A6409800B5C649 /* CalendarView.swift */,
 				0E75954B25A640BC00B5C649 /* InformationView.swift */,
 				0E096EFE25E57AC40077B651 /* TextView.swift */,
+				0EAD452C25E808E900F9DF8D /* SearchBar.swift */,
+				0EAD453025E814FC00F9DF8D /* CustomNavigationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -375,12 +381,14 @@
 				0E75953A25A6403800B5C649 /* LinkTile.swift in Sources */,
 				0E75954C25A640BC00B5C649 /* InformationView.swift in Sources */,
 				0E3273E625E26B6D00E880A2 /* ShareViewController.swift in Sources */,
+				0EAD453125E814FC00F9DF8D /* CustomNavigationView.swift in Sources */,
 				0E75952925A6401200B5C649 /* AddPopUpView.swift in Sources */,
 				0E75953225A6402800B5C649 /* LinkyApp.swift in Sources */,
 				0E75952825A6401200B5C649 /* LinkListView.swift in Sources */,
 				0E85347A25E0220400157B77 /* Category.swift in Sources */,
 				0E75953925A6403800B5C649 /* Model.swift in Sources */,
 				0E75954725A6409800B5C649 /* CalendarView.swift in Sources */,
+				0EAD452D25E808E900F9DF8D /* SearchBar.swift in Sources */,
 				0E096EFF25E57AC40077B651 /* TextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
