@@ -77,19 +77,13 @@ struct LinkListView: View {
         NavigationView {
             ZStack{
                 List {
-                    ForEach(linkArray.results.filter({searchBar.text.isEmpty ? true : $0.name.contains(searchBar.text)})){ links in
+                    ForEach(linkArray.results.filter({searchBar.text.isEmpty ? true : $0.name.localizedLowercase.contains(searchBar.text.lowercased())})){ links in
                         LinkTileRow(linkTile: links)
                     }
                 }
                 .padding(.all, 0)
                 .listStyle(PlainListStyle())
                 .add(self.searchBar)
-                
-                if (model.showPopUp) {
-                    AddPopUpView()
-                        .transition(.move(edge: .bottom))
-                        .animation(.easeOut)
-                }
                 
                 if model.showInformation {
                     InformationView(link: model.tappedLinktile!.link, linkName: model.tappedLinktile!.name, linkText: model.tappedLinktile?.text ?? "")
@@ -261,3 +255,9 @@ class BindableResults<Element>: ObservableObject where Element: RealmSwift.Realm
 //                        .transition(.move(edge: .bottom))
 //                        .animation(.easeOut)
 //                }
+// if (model.showPopUp) {
+//AddPopUpView()
+//    .transition(.move(edge: .bottom))
+//    .animation(.easeOut)
+//}
+//

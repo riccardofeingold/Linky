@@ -12,7 +12,7 @@ import RealmSwift
 
 @objc(ShareExtensionViewController)
 class ShareViewController: UIViewController {
-    var realm = try! Realm()
+    let fileURL = URL(string: "file:///Users/riccardofeingold/Library/Developer/CoreSimulator/Devices/A64AEC18-5D3E-422B-A867-5C0D18B3F8AD/data/Containers/Shared/AppGroup/12F7DF59-DC63-4995-99B1-C4D998029FB6/default.realm")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,10 +67,7 @@ class ShareViewController: UIViewController {
         // Query and update from any thread
         DispatchQueue(label: "background").async {
             autoreleasepool {
-                let fileURL = FileManager.default
-                    .containerURL(forSecurityApplicationGroupIdentifier: "group.linky")!
-                    .appendingPathComponent("default.realm")
-                let realm = try! Realm(configuration: Realm.Configuration(fileURL: fileURL))
+                let realm = try! Realm(configuration: Realm.Configuration(fileURL: self.fileURL))
                 try! realm.write {
                     realm.add(link)
                 }
@@ -136,3 +133,10 @@ struct ShareLinkPopUp: View {
 extension UserDefaults {
   static let group = UserDefaults(suiteName: "group.linky")!
 }
+
+
+//MARK: - to find the realm file where things are stored
+//                let fileURL = FileManager.default
+//                    .containerURL(forSecurityApplicationGroupIdentifier: "group.linky")!
+//                    .appendingPathComponent("default.realm")
+//                print(fileURL.absoluteString)
