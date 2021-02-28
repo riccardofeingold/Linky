@@ -52,6 +52,7 @@ extension UIScreen {
 
 //MARK: - LinkListView
 struct LinkListView: View {
+    let config: Realm.Configuration
     @State var searchTerm: String = ""
     @State var editMode = EditMode.inactive
     @ObservedObject var linkArray: BindableResults<LinkTile>
@@ -59,7 +60,6 @@ struct LinkListView: View {
     @EnvironmentObject var model: Model
     
     private let dateFormatter = DateFormatter()
-    var realm = try! Realm()
     
     init() {
         //Use this if NavigationBarTitle is with Large Font
@@ -69,7 +69,7 @@ struct LinkListView: View {
         let fileURL = FileManager.default
             .containerURL(forSecurityApplicationGroupIdentifier: "group.linky")!
             .appendingPathComponent("default.realm")
-        let config = Realm.Configuration(fileURL: fileURL)
+        config = Realm.Configuration(fileURL: fileURL)
         self.linkArray = BindableResults(results: try! Realm(configuration: config).objects(LinkTile.self))
     }
 
@@ -80,6 +80,19 @@ struct LinkListView: View {
                     ForEach(linkArray.results.filter({searchBar.text.isEmpty ? true : $0.name.localizedLowercase.contains(searchBar.text.lowercased())})){ links in
                         LinkTileRow(linkTile: links)
                     }
+                    .onDelete(perform: { indexSet in
+                        let realm = try! Realm(configuration: config)
+                        
+                        if let index = indexSet.first {
+                            let deleteLink = linkArray.results[index]
+                            try! realm.write {
+                                realm.delete(deleteLink)
+                            }
+                        }
+                    })
+                    .onMove(perform: { indices, newOffset in
+                        
+                    })
                 }
                 .padding(.all, 0)
                 .listStyle(PlainListStyle())
@@ -117,29 +130,8 @@ struct LinkListView: View {
                     }
                 }
             }
-            .onAppear{
-                if let sharedLink = UserDefaults.group.array(forKey: "sharedLinks") {
-                    self.storeSharedLink(sharedLink as! [String])
-                }
-                UserDefaults().removePersistentDomain(forName: "group.linky")
-            }
             .navigationBarTitle("Linky")
             .environment(\.editMode, $editMode)
-        }
-    }
-    
-    func storeSharedLink(_ link: [String]) {
-        let linkTile = LinkTile()
-        linkTile.id = UUID().hashValue
-        linkTile.name = link[0]
-        linkTile.link = link[1]
-        
-        do {
-            try realm.write{
-                realm.add(linkTile)
-            }
-        } catch {
-            print("Error message: \(error)")
         }
     }
 }
