@@ -54,7 +54,6 @@ extension UIScreen {
 struct LinkListView: View {
     let config: Realm.Configuration
     @State var searchTerm: String = ""
-    @State var editMode = EditMode.inactive
     @ObservedObject var linkArray: BindableResults<LinkTile>
     @ObservedObject var searchBar = SearchBar()
     @EnvironmentObject var model: Model
@@ -66,10 +65,7 @@ struct LinkListView: View {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.blue)]
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color.blue)]
         
-        let fileURL = FileManager.default
-            .containerURL(forSecurityApplicationGroupIdentifier: "group.linky")!
-            .appendingPathComponent("default.realm")
-        config = Realm.Configuration(fileURL: fileURL)
+        config = Realm.getConfigurationForSpecificGroup(groupName: "group.linky")
         self.linkArray = BindableResults(results: try! Realm(configuration: config).objects(LinkTile.self))
     }
 
@@ -131,7 +127,6 @@ struct LinkListView: View {
                 }
             }
             .navigationBarTitle("Linky")
-            .environment(\.editMode, $editMode)
         }
     }
 }
@@ -237,7 +232,6 @@ class BindableResults<Element>: ObservableObject where Element: RealmSwift.Realm
         token.invalidate()
     }
 }
-
 
 //                    .opacity(model.showCalendar ? 0.3 : 1)
 

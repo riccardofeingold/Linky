@@ -7,12 +7,12 @@
 
 import UIKit
 import SwiftUI
+import Foundation
 import MobileCoreServices
 import RealmSwift
 
 @objc(ShareExtensionViewController)
 class ShareViewController: UIViewController {
-    let fileURL = URL(string: "file:///Users/riccardofeingold/Library/Developer/CoreSimulator/Devices/A64AEC18-5D3E-422B-A867-5C0D18B3F8AD/data/Containers/Shared/AppGroup/12F7DF59-DC63-4995-99B1-C4D998029FB6/default.realm")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,11 +63,10 @@ class ShareViewController: UIViewController {
     }
     
     private func save(_ link: LinkTile) {
-//        UserDefaults.group.set(link, forKey: "sharedLinks")
         // Query and update from any thread
         DispatchQueue(label: "background").async {
             autoreleasepool {
-                let realm = try! Realm(configuration: Realm.Configuration(fileURL: self.fileURL))
+                let realm = try! Realm(configuration: Realm.getConfigurationForSpecificGroup(groupName: "group.linky"))
                 try! realm.write {
                     realm.add(link)
                 }
@@ -130,11 +129,19 @@ struct ShareLinkPopUp: View {
     }
 }
 
-extension UserDefaults {
-  static let group = UserDefaults(suiteName: "group.linky")!
+extension FileManager {
+    static func getFileURLOfGroup(groupName name: String) -> URL {
+        return FileManager.default
+            .containerURL(forSecurityApplicationGroupIdentifier: name)!
+            .appendingPathComponent("default.realm")
+    }
 }
 
-
+extension Realm {
+    static func getConfigurationForSpecificGroup(groupName name: String) -> Realm.Configuration {
+        return Realm.Configuration(fileURL: FileManager.getFileURLOfGroup(groupName: name))
+    }
+}
 //MARK: - to find the realm file where things are stored
 //                let fileURL = FileManager.default
 //                    .containerURL(forSecurityApplicationGroupIdentifier: "group.linky")!
