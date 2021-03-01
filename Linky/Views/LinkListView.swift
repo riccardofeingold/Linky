@@ -10,46 +10,6 @@ import Foundation
 import SwiftUI
 import RealmSwift
 
-//MARK: - Additional Data like UIScreen sizes etc.
-extension UIScreen {
-    //Device Size Infos
-    static let screenWidth = UIScreen.main.bounds.size.width
-    static let screenHeight = UIScreen.main.bounds.size.height
-    static let screenSize = UIScreen.main.bounds.size
-    
-    //AddPopUpView Size Infos
-    static let addPopUpViewWidth = UIScreen.screenWidth - 2 * UIScreen.screenWidth*0.15
-    static var addPopUpViewHeight: CGFloat {
-        return addPopUpViewWidth * 1.5
-    }
-    
-    //Symbol Size
-    static var symbolSize: CGFloat {
-        return addPopUpViewWidth / 6
-    }
-    
-    //Button Size Infos
-    static var addPopUpButtonWidth: CGFloat {
-        return addPopUpViewWidth / 3
-    }
-    static var addPopUpButtonHeight: CGFloat {
-        return addPopUpViewHeight / 8
-    }
-    
-    //information Screen
-    static var informationViewWidth: CGFloat {
-        return screenWidth * 0.9
-    }
-    
-    static var informationViewHeight: CGFloat {
-        return screenHeight * 0.6
-    }
-    
-    static var informationViewImageSize: CGFloat {
-        return informationViewWidth * 0.3
-    }
-}
-
 //MARK: - LinkListView
 struct LinkListView: View {
     let config: Realm.Configuration
@@ -66,7 +26,7 @@ struct LinkListView: View {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color.blue)]
         
         config = Realm.getConfigurationForSpecificGroup(groupName: "group.linky")
-        self.linkArray = BindableResults(results: try! Realm(configuration: config).objects(LinkTile.self))
+        self.linkArray = BindableResults(results: try! Realm(configuration: config).objects(LinkTile.self).sorted(byKeyPath: "order", ascending: false))
     }
 
     var body: some View {
@@ -87,7 +47,14 @@ struct LinkListView: View {
                         }
                     })
                     .onMove(perform: { indices, newOffset in
+                        let realm = try! Realm(configuration: config)
                         
+                        if let sourceIndex = indices.first {
+                            let moveLink = linkArray.results[sourceIndex]
+                            try! realm.write {
+                                moveLink.order = newOffset
+                            }
+                        }
                     })
                 }
                 .padding(.all, 0)
@@ -212,7 +179,7 @@ class ParentResolverViewController: UIViewController {
 }
 
 //MARK: - With this Class you can use can combine realm results with swiftui data logic
-class BindableResults<Element>: ObservableObject where Element: RealmSwift.RealmCollectionValue {
+public class BindableResults<Element>: ObservableObject where Element: RealmSwift.RealmCollectionValue {
 
     var results: Results<Element>
     private var token: NotificationToken!
@@ -230,6 +197,46 @@ class BindableResults<Element>: ObservableObject where Element: RealmSwift.Realm
 
     deinit {
         token.invalidate()
+    }
+}
+
+//MARK: - Additional Data like UIScreen sizes etc.
+extension UIScreen {
+    //Device Size Infos
+    static let screenWidth = UIScreen.main.bounds.size.width
+    static let screenHeight = UIScreen.main.bounds.size.height
+    static let screenSize = UIScreen.main.bounds.size
+    
+    //AddPopUpView Size Infos
+    static let addPopUpViewWidth = UIScreen.screenWidth - 2 * UIScreen.screenWidth*0.15
+    static var addPopUpViewHeight: CGFloat {
+        return addPopUpViewWidth * 1.5
+    }
+    
+    //Symbol Size
+    static var symbolSize: CGFloat {
+        return addPopUpViewWidth / 6
+    }
+    
+    //Button Size Infos
+    static var addPopUpButtonWidth: CGFloat {
+        return addPopUpViewWidth / 3
+    }
+    static var addPopUpButtonHeight: CGFloat {
+        return addPopUpViewHeight / 8
+    }
+    
+    //information Screen
+    static var informationViewWidth: CGFloat {
+        return screenWidth * 0.9
+    }
+    
+    static var informationViewHeight: CGFloat {
+        return screenHeight * 0.6
+    }
+    
+    static var informationViewImageSize: CGFloat {
+        return informationViewWidth * 0.3
     }
 }
 

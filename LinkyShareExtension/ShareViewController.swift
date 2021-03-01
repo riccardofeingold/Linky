@@ -46,8 +46,11 @@ class ShareViewController: UIViewController {
 //                    Handle the error here if you want
                     guard error == nil else {return}
                     if let url = data as? URL{
-//                        let linkInfos = [name, url.absoluteString]
+                        let realm = try! Realm(configuration: Realm.getConfigurationForSpecificGroup(groupName: "group.linky"))
+                        let currentLinkArray = realm.objects(LinkTile.self)
                         let newLinkTile = LinkTile()
+                        
+                        newLinkTile.order = currentLinkArray.count
                         newLinkTile.name = name
                         newLinkTile.text = text
                         newLinkTile.link = url.absoluteString
