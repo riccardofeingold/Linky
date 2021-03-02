@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct LinkyApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @Environment(\.scenePhase) var scenePhase
     var body: some Scene {
         WindowGroup {

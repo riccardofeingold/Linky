@@ -29,6 +29,9 @@
 		0E85347B25E0220400157B77 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E85347925E0220400157B77 /* Category.swift */; };
 		0EAD452D25E808E900F9DF8D /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAD452C25E808E900F9DF8D /* SearchBar.swift */; };
 		0EAD453125E814FC00F9DF8D /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAD453025E814FC00F9DF8D /* CustomNavigationView.swift */; };
+		0EB8008F25EE71EE0074C60B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EB8008E25EE71EE0074C60B /* GoogleService-Info.plist */; };
+		0EB8009025EE71EE0074C60B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EB8008E25EE71EE0074C60B /* GoogleService-Info.plist */; };
+		0EB8009425EE72440074C60B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB8009325EE72440074C60B /* AppDelegate.swift */; };
 		0EF9767B25E1CE4B00AA92E8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E75953725A6403800B5C649 /* Model.swift */; };
 		3C2F4006E4FC60C1F7836D6C /* Pods_LinkyShareExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C7D9A929A30F4ACBD16C3E0 /* Pods_LinkyShareExtension.framework */; };
 		3C94B8143B84DC1DEAD3F751 /* Pods_Linky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F49B10FECCBB6EF686AB2E /* Pods_Linky.framework */; };
@@ -80,6 +83,8 @@
 		0E85347925E0220400157B77 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		0EAD452C25E808E900F9DF8D /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		0EAD453025E814FC00F9DF8D /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
+		0EB8008E25EE71EE0074C60B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../.Trash/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0EB8009325EE72440074C60B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A51C939DD94F18F5E54B54F /* Pods-Linky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Linky.debug.xcconfig"; path = "Target Support Files/Pods-Linky/Pods-Linky.debug.xcconfig"; sourceTree = "<group>"; };
 		2E3161C11678222874B04936 /* Pods-LinkyShareExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinkyShareExtension.debug.xcconfig"; path = "Target Support Files/Pods-LinkyShareExtension/Pods-LinkyShareExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		70F49B10FECCBB6EF686AB2E /* Pods_Linky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Linky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +136,7 @@
 		0E19636125A21FD900EF79EF /* Linky */ = {
 			isa = PBXGroup;
 			children = (
+				0EB8009325EE72440074C60B /* AppDelegate.swift */,
 				0E75953625A6403800B5C649 /* Models */,
 				0E75952525A6401200B5C649 /* Views */,
 				0E75953025A6402800B5C649 /* Controllers */,
@@ -156,6 +162,7 @@
 				0E3C13C525D0074A002D436D /* ShareViewController.swift */,
 				0E3C13C725D0074B002D436D /* MainInterface.storyboard */,
 				0E3C13CA25D0074B002D436D /* Info.plist */,
+				0EB8008E25EE71EE0074C60B /* GoogleService-Info.plist */,
 			);
 			path = LinkyShareExtension;
 			sourceTree = "<group>";
@@ -298,6 +305,7 @@
 			files = (
 				0E19636A25A21FDA00EF79EF /* Preview Assets.xcassets in Resources */,
 				0E19636725A21FDA00EF79EF /* Assets.xcassets in Resources */,
+				0EB8008F25EE71EE0074C60B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +315,7 @@
 			files = (
 				0E072C5F25E2B4C8001D9840 /* Assets.xcassets in Resources */,
 				0E3C13C925D0074B002D436D /* MainInterface.storyboard in Resources */,
+				0EB8009025EE71EE0074C60B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +394,7 @@
 				0E75954C25A640BC00B5C649 /* InformationView.swift in Sources */,
 				0E3273E625E26B6D00E880A2 /* ShareViewController.swift in Sources */,
 				0EAD453125E814FC00F9DF8D /* CustomNavigationView.swift in Sources */,
+				0EB8009425EE72440074C60B /* AppDelegate.swift in Sources */,
 				0E75952925A6401200B5C649 /* AddPopUpView.swift in Sources */,
 				0E75953225A6402800B5C649 /* LinkyApp.swift in Sources */,
 				0E75952825A6401200B5C649 /* LinkListView.swift in Sources */,
