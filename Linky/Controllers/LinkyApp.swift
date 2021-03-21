@@ -14,9 +14,12 @@ struct LinkyApp: App {
     @Environment(\.scenePhase) var scenePhase
     var body: some Scene {
         WindowGroup {
-            LinkListView()
-                .environmentObject(Model())
-                .colorScheme(.light)
+            NavigationView {
+                HelloView()
+    //            LinkListView()
+    //                .environmentObject(Model())
+    //                .colorScheme(.light)
+            }
         }
     }
 }

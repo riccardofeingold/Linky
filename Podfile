@@ -8,6 +8,7 @@ target 'Linky' do
   # Pods for Linky
   pod 'RealmSwift'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Auth'
 
   # Optionally, include the Swift extensions if you're using Swift.
   pod 'FirebaseFirestoreSwift'
@@ -21,6 +22,7 @@ target 'LinkyShareExtension' do
   # Pods for LinkyShareExtension
   pod 'RealmSwift'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Auth'
 
   # Optionally, include the Swift extensions if you're using Swift.
   pod 'FirebaseFirestoreSwift'

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import UIKit
 import Firebase
 
@@ -14,8 +15,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         FirebaseApp.configure()
         
         let db = Firestore.firestore()
-        
         print(db)
+        
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.blue)]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color.blue)]
         return true
     }
 }

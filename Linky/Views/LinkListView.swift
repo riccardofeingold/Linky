@@ -9,11 +9,13 @@ import Combine
 import Foundation
 import SwiftUI
 import RealmSwift
+import Firebase
 
 //MARK: - LinkListView
 struct LinkListView: View {
     let config: Realm.Configuration
     @State var searchTerm: String = ""
+    @State var isPresented: Bool = false
     @ObservedObject var linkArray: BindableResults<LinkTile>
     @ObservedObject var searchBar = SearchBar()
     @EnvironmentObject var model: Model
@@ -21,80 +23,91 @@ struct LinkListView: View {
     private let dateFormatter = DateFormatter()
     
     init() {
-        //Use this if NavigationBarTitle is with Large Font
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.blue)]
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color.blue)]
-        
         config = Realm.getConfigurationForSpecificGroup(groupName: "group.linky")
         self.linkArray = BindableResults(results: try! Realm(configuration: config).objects(LinkTile.self).sorted(byKeyPath: "order", ascending: false))
     }
 
     var body: some View {
-        NavigationView {
-            ZStack{
-                List {
-                    ForEach(linkArray.results.filter({searchBar.text.isEmpty ? true : $0.name.localizedLowercase.contains(searchBar.text.lowercased())})){ links in
-                        LinkTileRow(linkTile: links)
+        ZStack{
+            List {
+                ForEach(linkArray.results.filter({searchBar.text.isEmpty ? true : $0.name.localizedLowercase.contains(searchBar.text.lowercased())})){ links in
+                    LinkTileRow(linkTile: links)
+                }
+                .onDelete(perform: { indexSet in
+                    let realm = try! Realm(configuration: config)
+                    
+                    if let index = indexSet.first {
+                        let deleteLink = linkArray.results[index]
+                        try! realm.write {
+                            realm.delete(deleteLink)
+                        }
                     }
-                    .onDelete(perform: { indexSet in
-                        let realm = try! Realm(configuration: config)
-                        
-                        if let index = indexSet.first {
-                            let deleteLink = linkArray.results[index]
-                            try! realm.write {
-                                realm.delete(deleteLink)
-                            }
+                })
+                .onMove(perform: { indices, newOffset in
+                    let realm = try! Realm(configuration: config)
+                    
+                    if let sourceIndex = indices.first {
+                        let moveLink = linkArray.results[sourceIndex]
+                        try! realm.write {
+                            moveLink.order = newOffset
                         }
-                    })
-                    .onMove(perform: { indices, newOffset in
-                        let realm = try! Realm(configuration: config)
-                        
-                        if let sourceIndex = indices.first {
-                            let moveLink = linkArray.results[sourceIndex]
-                            try! realm.write {
-                                moveLink.order = newOffset
-                            }
-                        }
-                    })
-                }
-                .padding(.all, 0)
-                .listStyle(PlainListStyle())
-                .add(self.searchBar)
+                    }
+                })
+            }
+            .padding(.all, 0)
+            .listStyle(PlainListStyle())
+            .add(self.searchBar)
+            
+            if model.showInformation {
+                InformationView(link: model.tappedLinktile!.link, linkName: model.tappedLinktile!.name, linkText: model.tappedLinktile?.text ?? "")
+            }
+            HStack {
+                Spacer()
                 
-                if model.showInformation {
-                    InformationView(link: model.tappedLinktile!.link, linkName: model.tappedLinktile!.name, linkText: model.tappedLinktile?.text ?? "")
-                }
-                HStack {
+                VStack {
                     Spacer()
                     
-                    VStack {
-                        Spacer()
-                        
-                        Button(action: {
-                            print("Edit")
-                        }, label: {
-                            ZStack {
-                                Circle()
-                                    .size(width: UIScreen.symbolSize, height: UIScreen.symbolSize)
-                                    .foregroundColor(.white)
-                                    .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize, alignment: .center)
-                                    .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 0))
-                                    .shadow(radius: 1)
+                    Button(action: {
+                        print("Edit")
+                    }, label: {
+                        ZStack {
+                            Circle()
+                                .size(width: UIScreen.symbolSize, height: UIScreen.symbolSize)
+                                .foregroundColor(.white)
+                                .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize, alignment: .center)
+                                .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 0))
+                                .shadow(radius: 1)
 
-                                Image(systemName: "pencil.circle.fill")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize, alignment: .center)
-                                    .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 0))
-                                    .foregroundColor(.blue)
-                            }
-                        })
-                        .padding(.trailing, 20)
-                    }
+                            Image(systemName: "pencil.circle.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: UIScreen.symbolSize, height: UIScreen.symbolSize, alignment: .center)
+                                .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 0))
+                                .foregroundColor(.blue)
+                        }
+                    })
+                    .padding(.trailing, 20)
                 }
             }
-            .navigationBarTitle("Linky")
         }
+        .navigationBarTitle("Linky")
+        .navigationBarItems(trailing: Button(action: {
+            do {
+                try Auth.auth().signOut()
+                isPresented = true
+            } catch let signOutError as NSError {
+              print ("Error signing out: %@", signOutError)
+                isPresented = false
+            }
+
+        }, label: {
+            NavigationLink(
+                destination: HelloView(),
+                isActive: $isPresented) {
+                    Text("Sign Out")
+                }
+        }))
+        .navigationBarBackButtonHidden(true)
     }
 }
 
