@@ -9,18 +9,6 @@ import SwiftUI
 import Firebase
 
 struct HelloView: View {
-    init() {
-        if Auth.auth().currentUser != nil {
-            NavigationLink(
-                destination: LinkListView()
-                    .environmentObject(Model())
-                    .colorScheme(.light),
-                label: {
-                    EmptyView()
-                })
-        }
-    }
-    
     var body: some View {
         VStack {
             Text("Hello!")

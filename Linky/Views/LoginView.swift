@@ -55,6 +55,12 @@ struct LoginView: View {
                                 if let e = error {
                                     print(e)
                                 } else {
+                                    let user = User(email: email, password: password)
+                                    let encoder = JSONEncoder()
+                                    if let encoded = try? encoder.encode(user) {
+                                        let defaults = UserDefaults.standard
+                                        defaults.set(encoded, forKey: "signedInPerson")
+                                    }
                                     isPresented = true
                                 }
                             }

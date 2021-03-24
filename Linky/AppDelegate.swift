@@ -11,6 +11,7 @@ import UIKit
 import Firebase
 
 class AppDelegate: NSObject, UIApplicationDelegate {
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
         
@@ -19,6 +20,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.blue)]
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color.blue)]
+        
         return true
     }
 }

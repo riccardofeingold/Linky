@@ -16,6 +16,7 @@ class Model: ObservableObject {
     @Published var showInformation = false
     @Published var tappedLinktile: LinkTile?
     @Published var date = Date()
+    @Published var loggedIn = false
     
     // data settings
     var dataFilePath: URL? {
