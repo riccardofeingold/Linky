@@ -10,9 +10,21 @@ import Firebase
 
 @main
 struct LinkyApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @Environment(\.scenePhase) var scenePhase
     @State var loggedIn = false
+    
+    init() {
+        FirebaseApp.configure()
+        
+        let db = Firestore.firestore()
+        print(db)
+        
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.blue)]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color.blue)]
+    }
+    
+    //For managagin users
+    var handle: AuthStateDidChangeListenerHandle?
     
     var body: some Scene {
         WindowGroup {
@@ -27,23 +39,10 @@ struct LinkyApp: App {
                     
                     HelloView()
                 }
-    //            LinkListView()
-    //                .environmentObject(Model())
-    //                .colorScheme(.light)
-                
             }
             .onAppear {
-                let defaults = UserDefaults.standard
-                if let signedInPerson = defaults.object(forKey: "signedInPerson") as? Data {
-                    let decoder = JSONDecoder()
-                    if let loadedUser = try? decoder.decode(User.self, from: signedInPerson) {
-                        Auth.auth().signIn(withEmail: loadedUser.email, password: loadedUser.password) { (authResult, error) in
-                            if error == nil {
-                                loggedIn = true
-                                print("Yes!")
-                            }
-                        }
-                    }
+                if (Auth.auth().currentUser != nil) {
+                    loggedIn = true
                 }
             }
         }
