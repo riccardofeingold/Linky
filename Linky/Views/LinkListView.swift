@@ -21,6 +21,8 @@ struct LinkListView: View {
     @EnvironmentObject var model: Model
     
     private let dateFormatter = DateFormatter()
+    let userDefault = UserDefaults.standard
+    let launchedBefore = UserDefaults.standard.bool(forKey: "usersignedin")
     
     init() {
         config = Realm.getConfigurationForSpecificGroup(groupName: "group.linky")
@@ -69,8 +71,11 @@ struct LinkListView: View {
                     
                     Button(action: {
                         print("Edit")
+                        signCurrentUserOut()
                     }, label: {
+                        
                         ZStack {
+                            
                             Circle()
                                 .size(width: UIScreen.symbolSize, height: UIScreen.symbolSize)
                                 .foregroundColor(.white)
@@ -92,22 +97,28 @@ struct LinkListView: View {
         }
         .navigationBarTitle("Linky")
         .navigationBarItems(trailing: Button(action: {
-            do {
-                try Auth.auth().signOut()
-                isPresented = true
-            } catch let signOutError as NSError {
-              print ("Error signing out: %@", signOutError)
-                isPresented = false
-            }
-
+            print("HELLO")
+//            signCurrentUserOut()
         }, label: {
             NavigationLink(
-                destination: HelloView(),
+                destination: LoginView(),
                 isActive: $isPresented) {
                     Text("Sign Out")
                 }
         }))
         .navigationBarBackButtonHidden(true)
+    }
+    
+    func signCurrentUserOut() {
+        do {
+          try Auth.auth().signOut()
+            self.userDefault.set(false, forKey: "usersignedin")
+            self.userDefault.synchronize()
+            print("test")
+            isPresented = true
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
     }
 }
 

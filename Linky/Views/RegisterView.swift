@@ -13,6 +13,9 @@ struct RegisterView: View {
     @State var password: String = ""
     @State var isPresented: Bool = false
     
+    let userDefault = UserDefaults.standard
+    let launchedBefore = UserDefaults.standard.bool(forKey: "usersignedin")
+    
     var body: some View {
         VStack {
             Spacer()
@@ -55,12 +58,14 @@ struct RegisterView: View {
                                 if let e = error {
                                     print(e)
                                 } else {
-                                    let user = User(email: email, password: password)
-                                    let encoder = JSONEncoder()
-                                    if let encoded = try? encoder.encode(user) {
-                                        let defaults = UserDefaults.standard
-                                        defaults.set(encoded, forKey: "signedInPerson")
-                                    }
+                                    self.userDefault.set(true, forKey: "usersignedin")
+                                    self.userDefault.synchronize()
+//                                    let user = User(email: email, password: password)
+//                                    let encoder = JSONEncoder()
+//                                    if let encoded = try? encoder.encode(user) {
+//                                        let defaults = UserDefaults.standard
+//                                        defaults.set(encoded, forKey: "signedInPerson")
+//                                    }
                                     isPresented = true
                                 }
                             }

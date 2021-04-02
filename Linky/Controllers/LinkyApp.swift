@@ -13,6 +13,10 @@ struct LinkyApp: App {
     @Environment(\.scenePhase) var scenePhase
     @State var loggedIn = false
     
+    let userDefault = UserDefaults.standard
+    
+    var handle: AuthStateDidChangeListenerHandle?
+    
     init() {
         FirebaseApp.configure()
         
@@ -22,9 +26,6 @@ struct LinkyApp: App {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.blue)]
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color.blue)]
     }
-    
-    //For managagin users
-    var handle: AuthStateDidChangeListenerHandle?
     
     var body: some Scene {
         WindowGroup {
@@ -37,10 +38,10 @@ struct LinkyApp: App {
                         EmptyView()
                     }
                     
-                    HelloView()
+                    LoginView()
                 }
             }
-            .onAppear {
+            .onAppear {  
                 if (Auth.auth().currentUser != nil) {
                     loggedIn = true
                 }

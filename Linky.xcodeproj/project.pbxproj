@@ -32,6 +32,7 @@
 		0E85347B25E0220400157B77 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E85347925E0220400157B77 /* Category.swift */; };
 		0EAD452D25E808E900F9DF8D /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAD452C25E808E900F9DF8D /* SearchBar.swift */; };
 		0EAD453125E814FC00F9DF8D /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAD453025E814FC00F9DF8D /* CustomNavigationView.swift */; };
+		0ECBFDB8261750C400F150F1 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECBFDB7261750C400F150F1 /* Configuration.swift */; };
 		0EE722CF260B6D5500CDC689 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0EE722CE260B6D5400CDC689 /* GoogleService-Info.plist */; };
 		0EE722D5260B702300CDC689 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE722D4260B702300CDC689 /* User.swift */; };
 		0EE722D6260B702300CDC689 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE722D4260B702300CDC689 /* User.swift */; };
@@ -89,6 +90,7 @@
 		0E85347925E0220400157B77 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		0EAD452C25E808E900F9DF8D /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		0EAD453025E814FC00F9DF8D /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
+		0ECBFDB7261750C400F150F1 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		0EE722CE260B6D5400CDC689 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0EE722D4260B702300CDC689 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2A51C939DD94F18F5E54B54F /* Pods-Linky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Linky.debug.xcconfig"; path = "Target Support Files/Pods-Linky/Pods-Linky.debug.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				0E75952625A6401200B5C649 /* LinkListView.swift */,
+				0ECBFDB7261750C400F150F1 /* Configuration.swift */,
+				0E0E4AF2260789B4004FCA99 /* LoginView.swift */,
 				0E75952725A6401200B5C649 /* AddPopUpView.swift */,
 				0E75954625A6409800B5C649 /* CalendarView.swift */,
 				0E75954B25A640BC00B5C649 /* InformationView.swift */,
@@ -183,7 +187,6 @@
 				0EAD452C25E808E900F9DF8D /* SearchBar.swift */,
 				0EAD453025E814FC00F9DF8D /* CustomNavigationView.swift */,
 				0E0E4AED260789A9004FCA99 /* RegisterView.swift */,
-				0E0E4AF2260789B4004FCA99 /* LoginView.swift */,
 				0E3266DB260799C90092EA1F /* HelloView.swift */,
 			);
 			path = Views;
@@ -241,7 +244,7 @@
 				0E19635C25A21FD900EF79EF /* Frameworks */,
 				0E19635D25A21FD900EF79EF /* Resources */,
 				0E3C13CE25D0074B002D436D /* Embed App Extensions */,
-				DCD04E5A780468E3F52D949D /* [CP] Embed Pods Frameworks */,
+				E0D4FD031261342C78B8D8A6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -374,7 +377,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DCD04E5A780468E3F52D949D /* [CP] Embed Pods Frameworks */ = {
+		E0D4FD031261342C78B8D8A6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -410,6 +413,7 @@
 				0E85347A25E0220400157B77 /* Category.swift in Sources */,
 				0E75953925A6403800B5C649 /* Model.swift in Sources */,
 				0E75954725A6409800B5C649 /* CalendarView.swift in Sources */,
+				0ECBFDB8261750C400F150F1 /* Configuration.swift in Sources */,
 				0E09524225EC3DB200E8A8A6 /* LinkList.swift in Sources */,
 				0EE722D5260B702300CDC689 /* User.swift in Sources */,
 				0EAD452D25E808E900F9DF8D /* SearchBar.swift in Sources */,
