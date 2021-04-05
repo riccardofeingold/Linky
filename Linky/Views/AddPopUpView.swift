@@ -7,7 +7,7 @@
 
 import SwiftUI
 import UIKit
-import RealmSwift
+//import RealmSwift
 
 extension Color {
     static let lightGray: Color = Color(UIColor.systemGray6)
@@ -39,14 +39,14 @@ struct AddPopUpView: View {
     @EnvironmentObject var model: Model
     @State var link: String = ""
     @State var name: String = ""
-    var realm = try! Realm()
+//    var realm = try! Realm()
     
     init() {
-        let fileURL = FileManager.default
-            .containerURL(forSecurityApplicationGroupIdentifier: "group.linky")!
-            .appendingPathComponent("default.realm")
-        let config = Realm.Configuration(fileURL: fileURL)
-        self.realm = try! Realm(configuration: config)
+//        let fileURL = FileManager.default
+//            .containerURL(forSecurityApplicationGroupIdentifier: "group.linky")!
+//            .appendingPathComponent("default.realm")
+//        let config = Realm.Configuration(fileURL: fileURL)
+//        self.realm = try! Realm(configuration: config)
     }
     
     var body: some View {
@@ -124,13 +124,13 @@ struct AddPopUpView: View {
     
 //    Save Links
     func save(_ link: LinkTile) {
-        do {
-            try realm.write{
-                realm.add(link)
-            }
-        } catch {
-            print("Error message: \(error)")
-        }
+//        do {
+//            try realm.write{
+//                realm.add(link)
+//            }
+//        } catch {
+//            print("Error message: \(error)")
+//        }
     }
 }
 

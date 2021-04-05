@@ -6,13 +6,12 @@ target 'Linky' do
   use_frameworks!
 
   # Pods for Linky
-  pod 'RealmSwift'
   pod 'Firebase/Firestore'
   pod 'Firebase/Auth'
 
   # Optionally, include the Swift extensions if you're using Swift.
   pod 'FirebaseFirestoreSwift'
-
+  
 end
 
 target 'LinkyShareExtension' do
@@ -20,18 +19,17 @@ target 'LinkyShareExtension' do
   use_frameworks!
 
   # Pods for LinkyShareExtension
-  pod 'RealmSwift'
   pod 'Firebase/Firestore'
   pod 'Firebase/Auth'
 
   # Optionally, include the Swift extensions if you're using Swift.
   pod 'FirebaseFirestoreSwift'
-end
-
-post_install do |installer|
- installer.pods_project.targets.each do |target|
-  target.build_configurations.each do |config|
-   config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
+  
+  post_install do |installer|
+   installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+     config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
+    end
+   end
   end
- end
 end

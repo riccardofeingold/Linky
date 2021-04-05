@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 import Combine
-import RealmSwift
 
 class Model: ObservableObject {
     @Published var showPopUp = false

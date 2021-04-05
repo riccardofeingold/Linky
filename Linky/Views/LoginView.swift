@@ -13,11 +13,8 @@ struct LoginView: View {
     @State var password: String = ""
     @State var isPresented: Bool = false
     
-    let userDefault = UserDefaults.standard
-    let launchedBefore = UserDefaults.standard.bool(forKey: "usersignedin")
-    
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
             Spacer()
             
             TextField("Email", text: $email)
@@ -34,37 +31,36 @@ struct LoginView: View {
                 .background(Color(UIColor.systemGray6))
                 .cornerRadius(10)
                 .padding(.horizontal)
-            
-            
+                        
             HStack {
-                Spacer()
-                
                 NavigationLink(
                     destination: LinkListView()
                         .environmentObject(Model())
                         .colorScheme(.light),
                     isActive: $isPresented) {
                         ZStack {
-                            Text("Save")
-                                .font(.body)
-                                .foregroundColor(.white)
-                                .bold()
-                                .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-                                .background(Color.blue)
-                                .cornerRadius(5.0)
-                        }
-                        .onTapGesture {
-                            Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
-                                if let e = error {
-                                    print(e)
-                                } else {
-                                    isPresented = true
+                            Button(action: {
+                                Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+                                    if let e = error {
+                                        print(e)
+                                    } else {
+                                        isPresented = true
+                                    }
                                 }
-                            }
+                            }, label: {
+                                Text("Sign In")
+                                    .font(.body)
+                                    .foregroundColor(.white)
+                                    .bold()
+                                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                                    .background(Color.blue)
+                                    .cornerRadius(5.0)
+                            })
                         }
                     }
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 10))
             }
+            
             Spacer()
         }
         .navigationBarTitle("Login")

@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import RealmSwift
 
-class Category: Object {
-    @objc dynamic var title: String = ""
-    let linkTiles = List<LinkTile>()
-}
+//class Category {
+//    @objc dynamic var title: String = ""
+//    let linkTiles = List<LinkTile>()
+//}

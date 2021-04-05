@@ -8,53 +8,50 @@
 import Combine
 import Foundation
 import SwiftUI
-import RealmSwift
 import Firebase
 
 //MARK: - LinkListView
 struct LinkListView: View {
-    let config: Realm.Configuration
+//    let config: Realm.Configuration
     @State var searchTerm: String = ""
     @State var isPresented: Bool = false
-    @ObservedObject var linkArray: BindableResults<LinkTile>
+//    @ObservedObject var linkArray: BindableResults<LinkTile>
     @ObservedObject var searchBar = SearchBar()
     @EnvironmentObject var model: Model
     
     private let dateFormatter = DateFormatter()
-    let userDefault = UserDefaults.standard
-    let launchedBefore = UserDefaults.standard.bool(forKey: "usersignedin")
     
     init() {
-        config = Realm.getConfigurationForSpecificGroup(groupName: "group.linky")
-        self.linkArray = BindableResults(results: try! Realm(configuration: config).objects(LinkTile.self).sorted(byKeyPath: "order", ascending: false))
+//        config = Realm.getConfigurationForSpecificGroup(groupName: "group.linky")
+//        self.linkArray = BindableResults(results: try! Realm(configuration: config).objects(LinkTile.self).sorted(byKeyPath: "order", ascending: false))
     }
 
     var body: some View {
         ZStack{
             List {
-                ForEach(linkArray.results.filter({searchBar.text.isEmpty ? true : $0.name.localizedLowercase.contains(searchBar.text.lowercased())})){ links in
-                    LinkTileRow(linkTile: links)
-                }
-                .onDelete(perform: { indexSet in
-                    let realm = try! Realm(configuration: config)
-                    
-                    if let index = indexSet.first {
-                        let deleteLink = linkArray.results[index]
-                        try! realm.write {
-                            realm.delete(deleteLink)
-                        }
-                    }
-                })
-                .onMove(perform: { indices, newOffset in
-                    let realm = try! Realm(configuration: config)
-                    
-                    if let sourceIndex = indices.first {
-                        let moveLink = linkArray.results[sourceIndex]
-                        try! realm.write {
-                            moveLink.order = newOffset
-                        }
-                    }
-                })
+//                ForEach(linkArray.results.filter({searchBar.text.isEmpty ? true : $0.name.localizedLowercase.contains(searchBar.text.lowercased())})){ links in
+//                    LinkTileRow(linkTile: links)
+//                }
+//                .onDelete(perform: { indexSet in
+//                    let realm = try! Realm(configuration: config)
+//
+//                    if let index = indexSet.first {
+//                        let deleteLink = linkArray.results[index]
+//                        try! realm.write {
+//                            realm.delete(deleteLink)
+//                        }
+//                    }
+//                })
+//                .onMove(perform: { indices, newOffset in
+//                    let realm = try! Realm(configuration: config)
+//
+//                    if let sourceIndex = indices.first {
+//                        let moveLink = linkArray.results[sourceIndex]
+//                        try! realm.write {
+//                            moveLink.order = newOffset
+//                        }
+//                    }
+//                })
             }
             .padding(.all, 0)
             .listStyle(PlainListStyle())
@@ -111,10 +108,7 @@ struct LinkListView: View {
     
     func signCurrentUserOut() {
         do {
-          try Auth.auth().signOut()
-            self.userDefault.set(false, forKey: "usersignedin")
-            self.userDefault.synchronize()
-            print("test")
+            try Auth.auth().signOut()
             isPresented = true
         } catch let signOutError as NSError {
           print ("Error signing out: %@", signOutError)
@@ -202,27 +196,27 @@ class ParentResolverViewController: UIViewController {
     }
 }
 
-//MARK: - With this Class you can use can combine realm results with swiftui data logic
-public class BindableResults<Element>: ObservableObject where Element: RealmSwift.RealmCollectionValue {
-
-    var results: Results<Element>
-    private var token: NotificationToken!
-
-    init(results: Results<Element>) {
-        self.results = results
-        lateInit()
-    }
-
-    func lateInit() {
-        token = results.observe { [weak self] _ in
-            self?.objectWillChange.send()
-        }
-    }
-
-    deinit {
-        token.invalidate()
-    }
-}
+////MARK: - With this Class you can use can combine realm results with swiftui data logic
+//public class BindableResults<Element>: ObservableObject where Element: RealmSwift.RealmCollectionValue {
+//
+//    var results: Results<Element>
+//    private var token: NotificationToken!
+//
+//    init(results: Results<Element>) {
+//        self.results = results
+//        lateInit()
+//    }
+//
+//    func lateInit() {
+//        token = results.observe { [weak self] _ in
+//            self?.objectWillChange.send()
+//        }
+//    }
+//
+//    deinit {
+//        token.invalidate()
+//    }
+//}
 
 //MARK: - Additional Data like UIScreen sizes etc.
 extension UIScreen {

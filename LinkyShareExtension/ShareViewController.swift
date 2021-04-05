@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 import Foundation
 import MobileCoreServices
-import RealmSwift
+//import RealmSwift
 
 @objc(ShareExtensionViewController)
 class ShareViewController: UIViewController {
@@ -35,44 +35,44 @@ class ShareViewController: UIViewController {
     }
     
     private func handleSharedLinks(nameOfWebsite name: String,with text: String) {
-//        Extracting the path to the URL that is being shared
-        let attachments = (self.extensionContext?.inputItems.first as? NSExtensionItem)?.attachments ?? []
-        let contentType = kUTTypeURL as String
-        print(attachments)
-        for provider in attachments {
-//            check if the content type is the same as we expected
-            if provider.hasItemConformingToTypeIdentifier(contentType) {
-                provider.loadItem(forTypeIdentifier: contentType, options: nil) { [unowned self] (data, error) in
-//                    Handle the error here if you want
-                    guard error == nil else {return}
-                    if let url = data as? URL{
-                        let realm = try! Realm(configuration: Realm.getConfigurationForSpecificGroup(groupName: "group.linky"))
-                        let currentLinkArray = realm.objects(LinkTile.self)
-                        let newLinkTile = LinkTile()
-                        
-                        newLinkTile.order = currentLinkArray.count
-                        newLinkTile.name = name
-                        newLinkTile.text = text
-                        newLinkTile.link = url.absoluteString
-                        newLinkTile.id = UUID().hashValue
-                        self.save(newLinkTile)
-                        
-                    }else {
-                        fatalError("Impossible to save link!")
-                    }
-                }
-            }
-        }
+////        Extracting the path to the URL that is being shared
+//        let attachments = (self.extensionContext?.inputItems.first as? NSExtensionItem)?.attachments ?? []
+//        let contentType = kUTTypeURL as String
+//        print(attachments)
+//        for provider in attachments {
+////            check if the content type is the same as we expected
+//            if provider.hasItemConformingToTypeIdentifier(contentType) {
+//                provider.loadItem(forTypeIdentifier: contentType, options: nil) { [unowned self] (data, error) in
+////                    Handle the error here if you want
+//                    guard error == nil else {return}
+//                    if let url = data as? URL{
+////                        let realm = try! Realm(configuration: Realm.getConfigurationForSpecificGroup(groupName: "group.linky"))
+////                        let currentLinkArray = realm.objects(LinkTile.self)
+//                        let newLinkTile = LinkTile()
+////
+////                        newLinkTile.order = currentLinkArray.count
+////                        newLinkTile.name = name
+////                        newLinkTile.text = text
+////                        newLinkTile.link = url.absoluteString
+////                        newLinkTile.id = UUID().hashValue
+////                        self.save(newLinkTile)
+//
+//                    }else {
+//                        fatalError("Impossible to save link!")
+//                    }
+//                }
+//            }
+//        }
     }
     
     private func save(_ link: LinkTile) {
         // Query and update from any thread
         DispatchQueue(label: "background").async {
             autoreleasepool {
-                let realm = try! Realm(configuration: Realm.getConfigurationForSpecificGroup(groupName: "group.linky"))
-                try! realm.write {
-                    realm.add(link)
-                }
+//                let realm = try! Realm(configuration: Realm.getConfigurationForSpecificGroup(groupName: "group.linky"))
+//                try! realm.write {
+//                    realm.add(link)
+//                }
             }
         }
     }
@@ -140,11 +140,11 @@ extension FileManager {
     }
 }
 
-extension Realm {
-    static func getConfigurationForSpecificGroup(groupName name: String) -> Realm.Configuration {
-        return Realm.Configuration(fileURL: FileManager.getFileURLOfGroup(groupName: name))
-    }
-}
+//extension Realm {
+//    static func getConfigurationForSpecificGroup(groupName name: String) -> Realm.Configuration {
+//        return Realm.Configuration(fileURL: FileManager.getFileURLOfGroup(groupName: name))
+//    }
+//}
 //MARK: - to find the realm file where things are stored
 //                let fileURL = FileManager.default
 //                    .containerURL(forSecurityApplicationGroupIdentifier: "group.linky")!

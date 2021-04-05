@@ -16,7 +16,6 @@
 		0E0E4AF3260789B4004FCA99 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0E4AF2260789B4004FCA99 /* LoginView.swift */; };
 		0E19636725A21FDA00EF79EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E19636625A21FDA00EF79EF /* Assets.xcassets */; };
 		0E19636A25A21FDA00EF79EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E19636925A21FDA00EF79EF /* Preview Assets.xcassets */; };
-		0E3266DC260799C90092EA1F /* HelloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3266DB260799C90092EA1F /* HelloView.swift */; };
 		0E3273E625E26B6D00E880A2 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3C13C525D0074A002D436D /* ShareViewController.swift */; };
 		0E3C13C625D0074A002D436D /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3C13C525D0074A002D436D /* ShareViewController.swift */; };
 		0E3C13C925D0074B002D436D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3C13C725D0074B002D436D /* MainInterface.storyboard */; };
@@ -74,7 +73,6 @@
 		0E19636625A21FDA00EF79EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E19636925A21FDA00EF79EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0E19636B25A21FDA00EF79EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0E3266DB260799C90092EA1F /* HelloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloView.swift; sourceTree = "<group>"; };
 		0E3273E325E263D700E880A2 /* LinkyShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LinkyShareExtension.entitlements; sourceTree = "<group>"; };
 		0E3C13C325D0074A002D436D /* LinkyShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LinkyShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E3C13C525D0074A002D436D /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -177,17 +175,16 @@
 		0E75952525A6401200B5C649 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0E0E4AF2260789B4004FCA99 /* LoginView.swift */,
+				0E0E4AED260789A9004FCA99 /* RegisterView.swift */,
 				0E75952625A6401200B5C649 /* LinkListView.swift */,
 				0ECBFDB7261750C400F150F1 /* Configuration.swift */,
-				0E0E4AF2260789B4004FCA99 /* LoginView.swift */,
 				0E75952725A6401200B5C649 /* AddPopUpView.swift */,
 				0E75954625A6409800B5C649 /* CalendarView.swift */,
 				0E75954B25A640BC00B5C649 /* InformationView.swift */,
 				0E096EFE25E57AC40077B651 /* TextView.swift */,
 				0EAD452C25E808E900F9DF8D /* SearchBar.swift */,
 				0EAD453025E814FC00F9DF8D /* CustomNavigationView.swift */,
-				0E0E4AED260789A9004FCA99 /* RegisterView.swift */,
-				0E3266DB260799C90092EA1F /* HelloView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -281,7 +278,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					0E19635E25A21FD900EF79EF = {
 						CreatedOnToolsVersion = 12.3;
@@ -405,7 +402,6 @@
 				0E75954C25A640BC00B5C649 /* InformationView.swift in Sources */,
 				0E3273E625E26B6D00E880A2 /* ShareViewController.swift in Sources */,
 				0EAD453125E814FC00F9DF8D /* CustomNavigationView.swift in Sources */,
-				0E3266DC260799C90092EA1F /* HelloView.swift in Sources */,
 				0E75952925A6401200B5C649 /* AddPopUpView.swift in Sources */,
 				0E0E4AEE260789A9004FCA99 /* RegisterView.swift in Sources */,
 				0E75953225A6402800B5C649 /* LinkyApp.swift in Sources */,
@@ -508,7 +504,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -563,7 +559,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -586,7 +582,7 @@
 				DEVELOPMENT_TEAM = C43N923FE6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Linky/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -611,7 +607,7 @@
 				DEVELOPMENT_TEAM = C43N923FE6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Linky/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
